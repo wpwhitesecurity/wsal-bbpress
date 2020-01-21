@@ -5,7 +5,7 @@
  * Description: An addon to the WP Security Audit Log Plugin to track events within the BBPress plugin.
  * Text Domain: wp-security-audit-log
  * Author URI: http://www.wpwhitesecurity.com/
- * License: GPL2
+ * License: GPL3
  *
  * @package Wsal
  * @subpackage Wsal Custom Events Loader
