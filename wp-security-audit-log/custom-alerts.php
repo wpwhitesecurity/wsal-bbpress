@@ -33,5 +33,9 @@ $custom_alerts = array(
 			array( 8012, WSAL_MEDIUM, __( 'User changed time to disallow post editing', 'wp-security-audit-log' ), __( 'Changed the time to disallow post editing in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%', 'wp-security-audit-log' ), 'bbpress', 'modified' ),
 			array( 8013, WSAL_HIGH, __( 'User changed the forum setting posting throttle time', 'wp-security-audit-log' ), __( 'Changed the posting throttle time in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%', 'wp-security-audit-log' ), 'bbpress', 'modified' ),
 		),
+
+		__( 'bbPress User Profiles', 'wp-security-audit-log' ) => array(
+			array( 8023, WSAL_LOW, __( 'The forum role of a user was changed by another WordPress user', 'wp-security-audit-log' ), __( 'Change the forum role of user %TargetUsername% %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole% %LineBreak% First name: %FirstName% %LineBreak% Last name: %LastName% %LineBreak% %EditUserLink%', 'wp-security-audit-log' ), 'user', 'modified' ),
+		),
 	),
 );
