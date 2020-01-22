@@ -22,6 +22,7 @@ add_action( 'wsal_before_sensor_load', 'wsal_bbpress_plugin_add_custom_sensors_a
  *
  * @method wsal_mu_plugin_add_custom_sensors_and_events_dirs
  * @since  1.0.0
+ * @param array $sensor something to be returned.
  */
 function wsal_bbpress_plugin_add_custom_sensors_and_event( $sensor ) {
 	add_filter( 'wsal_custom_sensors_classes_dirs', 'wsal_bbpress_plugin_custom_sensors_path' );
