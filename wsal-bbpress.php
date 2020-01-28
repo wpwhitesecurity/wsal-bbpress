@@ -27,7 +27,7 @@
  	// Check if the notice was already dismissed by the user.
  	if( get_option( 'wsal_bbpress_notice_dismissed' ) != true ) {
  		if ( ! class_exists( 'WSAL_PluginInstallAndActivate' ) && ! class_exists( 'PluginInstallerAction' ) ) {
- 			require_once 'wp-security-audit-log/classes/PluginInstallAndActivate.php';
+ 			require_once 'wp-security-audit-log/classes/PluginInstallandActivate.php';
  			require_once 'wp-security-audit-log/classes/PluginInstallerAction.php';
  		}
  		$plugin_installer = new PluginInstallerAction();
