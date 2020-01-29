@@ -10,7 +10,7 @@ jQuery( document ).ready( function() {
   });
 
   // Add on installer
-  jQuery(".install-addon").click( function(e) {
+  jQuery(".install-addon:not(.disabled)").click( function(e) {
     jQuery(this).html( WSALWPFormsData.installing );
     var currentButton = jQuery(this);
     var PluginSlug = jQuery(this).attr('data-plugin-slug');
