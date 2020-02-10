@@ -4,66 +4,92 @@
  * Plugin URI: https://www.wpsecurityauditlog.com/
  * Description: An addon to the WP Security Audit Log Plugin to track events within the BBPress plugin.
  * Text Domain: wp-security-audit-log
+ * Author: WP White Security
  * Author URI: http://www.wpwhitesecurity.com/
- * License: GPL3
+ * Version: 1.0.0
+ * License: GPL2
  *
  * @package Wsal
  * @subpackage Wsal Custom Events Loader
  */
 
- /*
+/*
+	Copyright(c) 2020  WP White Security  (email : info@wpwhitesecurity.com)
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License, version 2, as
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+/**
  * Display admin notice if WSAL is not installed.
  */
- function wsal_bbpress_install_notice() {
-     ?>
-     <div class="notice notice-success is-dismissible wsaf-wpforms-notice">
-         <p><?php _e( 'This is an add-on for the WP Security Audit Log plugin. Please install it to use this add-on.', 'wp-security-audit-log' ); ?> <button class="install-addon button button-primary" data-plugin-slug="wp-security-audit-log/wp-security-audit-log.php" data-plugin-download-url="https://downloads.wordpress.org/plugin/wp-security-audit-log.latest-stable.zip" data-nonce="<?php echo wp_create_nonce( 'wsal-install-addon' ); ?>"><?php _e( 'Install WP Security Audit Log.', 'wp-security-audit-log' ); ?></button><span class="spinner" style="display: none; visibility: visible; float: none; margin: 0 0 0 8px;"></span></p>
-     </div>
-     <?php
- }
+function wsal_bbpress_install_notice() { ?>
+  <div class="notice notice-success is-dismissible wsaf-bbpress-notice">
+    <?php
+      printf(
+        '<p>%1$s <button class="install-addon button button-primary" data-plugin-slug="wp-security-audit-log/wp-security-audit-log.php" data-plugin-download-url="%2$s" data-nonce="%3$s">%4$s</button><span class="spinner" style="display: none; visibility: visible; float: none; margin: 0 0 0 8px;"></span></p>',
+        esc_html__( 'This is an add-on for the WP Security Audit Log plugin. Please install it to use this add-on.', 'wp-security-audit-log' ),
+        esc_url( 'https://downloads.wordpress.org/plugin/wp-security-audit-log.latest-stable.zip' ),
+        esc_attr( wp_create_nonce( 'wsal-install-addon' ) ),
+        esc_html__( 'Install WP Security Audit Log.', 'wp-security-audit-log' )
+      );
+    ?>
+  </div>
+  <?php
+}
 
- // Check if main plugin is installed.
- if ( ! class_exists( 'WpSecurityAuditLog' ) ) {
- 	// Check if the notice was already dismissed by the user.
- 	if( get_option( 'wsal_bbpress_notice_dismissed' ) != true ) {
- 		if ( ! class_exists( 'WSAL_PluginInstallAndActivate' ) && ! class_exists( 'WSAL_PluginInstallerAction' ) ) {
- 			require_once 'wp-security-audit-log/classes/PluginInstallandActivate.php';
- 			require_once 'wp-security-audit-log/classes/PluginInstallerAction.php';
- 		}
- 		$plugin_installer = new WSAL_PluginInstallerAction();
- 		add_action( 'admin_notices', 'wsal_bbpress_install_notice' );
- 	}
- } else {
- 	// Reset the notice if the class is not found.
- 	delete_option( 'wsal_bbpress_notice_dismissed' );
- }
+// Check if main plugin is installed.
+if ( ! class_exists( 'WpSecurityAuditLog' ) && ! class_exists( 'WSAL_AlertManager' ) ) {
+	// Check if the notice was already dismissed by the user.
+	if ( get_option( 'wsal_bbpress_notice_dismissed' ) != true ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison -- this may be truthy and not explicitly bool
+		if ( ! class_exists( 'WSAL_PluginInstallAndActivate' ) && ! class_exists( 'WSAL_PluginInstallerAction' ) ) {
+			require_once 'wp-security-audit-log/classes/PluginInstallandActivate.php';
+			require_once 'wp-security-audit-log/classes/PluginInstallerAction.php';
+		}
+		$plugin_installer = new WSAL_PluginInstallerAction();
+		add_action( 'admin_notices', 'wsal_bbpress_install_notice' );
+	}
+} else {
+	// Reset the notice if the class is not found.
+	delete_option( 'wsal_bbpress_notice_dismissed' );
+}
 
 
- /*
+/**
  * Load our js file to handle ajax.
  */
- function wsal_bbpress_scripts() {
- 	wp_enqueue_script(
- 		'wsal-bbpress-scripts',
- 		plugins_url( 'assets/js/scripts.js', __FILE__ ),
- 		array( 'jquery' ),
- 		'1.0',
- 		true
- 	);
+function wsal_bbpress_scripts() {
+  wp_enqueue_script(
+    'wsal-bbpress-scripts',
+    plugins_url( 'assets/js/scripts.js', __FILE__ ),
+    array( 'jquery' ),
+    '1.0',
+    true
+  );
 
- 	$script_data = array(
- 		'ajaxURL'           => admin_url( 'admin-ajax.php' ),
- 		'installing'        => __( 'Installing, please wait', 'wp-security-audit-log' ),
- 		'already_installed' => __( 'Already installed', 'wp-security-audit-log' ),
- 		'installed'         => __( 'Addon installed', 'wp-security-audit-log' ),
- 		'activated'         => __( 'Addon activated', 'wp-security-audit-log' ),
- 		'failed'            => __( 'Install failed', 'wp-security-audit-log' ),
- 	);
+  $script_data = array(
+    'ajaxURL'           => admin_url( 'admin-ajax.php' ),
+    'installing'        => __( 'Installing, please wait', 'wp-security-audit-log' ),
+    'already_installed' => __( 'Already installed', 'wp-security-audit-log' ),
+    'installed'         => __( 'Addon installed', 'wp-security-audit-log' ),
+    'activated'         => __( 'Addon activated', 'wp-security-audit-log' ),
+    'failed'            => __( 'Install failed', 'wp-security-audit-log' ),
+  );
 
- 	// Send ajax url to JS file.
- 	wp_localize_script( 'wsal-bbpress-scripts', 'WSALWPFormsData', $script_data );
- }
- add_action( 'admin_enqueue_scripts', 'wsal_bbpress_scripts' );
+  // Send ajax url to JS file.
+  wp_localize_script( 'wsal-bbpress-scripts', 'WSALWPFormsData', $script_data );
+}
+add_action( 'admin_enqueue_scripts', 'wsal_bbpress_scripts' );
 
  /*
  * Update option if user clicks dismiss.
