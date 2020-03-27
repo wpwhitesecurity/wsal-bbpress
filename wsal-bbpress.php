@@ -168,25 +168,4 @@ function wsal_bbpress_add_custom_event_objects( $objects ) {
 	return $objects;
 }
 
-/**
- * Adds new custom event object text for our plugin
- *
- * @method wsal_bbpress_add_custom_event_object_text
- * @since  1.0.0
- * @param string $display the text to display.
- * @param string $object the current object type.
- * @return string
- */
-function wsal_bbpress_add_custom_event_object_text( $display, $object ) {
-	if ( 'bbpress' === $object ) {
-			$display = __( 'BBPress', 'wp-security-audit-log' );
-	}
-	if ( 'bbpress-forum' === $object ) {
-			$display = __( 'BBPress Forum', 'wp-security-audit-log' );
-	}
-
-	return $display;
-}
-
 add_filter( 'wsal_event_objects', 'wsal_bbpress_add_custom_event_objects' );
-add_filter( 'wsal_event_object_text', 'wsal_bbpress_add_custom_event_object_text', 10, 2 );
