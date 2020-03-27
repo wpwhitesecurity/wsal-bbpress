@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Security Audit Log for BBPress\n"
-"POT-Creation-Date: 2020-03-27 17:19+0000\n"
-"PO-Revision-Date: 2020-03-27 17:19+0000\n"
+"POT-Creation-Date: 2020-03-27 18:06+0000\n"
+"PO-Revision-Date: 2020-03-27 18:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -321,6 +321,14 @@ msgstr ""
 
 #: wsal-bbpress.php:163
 msgid "BBPress Forum"
+msgstr ""
+
+#: wsal-bbpress.php:182
+msgid "View the Forum in editor"
+msgstr ""
+
+#: wsal-bbpress.php:189
+msgid "View the Topic in editor"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
