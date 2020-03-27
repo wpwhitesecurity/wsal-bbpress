@@ -4,6 +4,7 @@
  * Plugin URI: https://www.wpsecurityauditlog.com/
  * Description: An addon to the WP Security Audit Log Plugin to track events within the BBPress plugin.
  * Text Domain: wp-security-audit-log
+ * Domain Path: /languages
  * Author: WP White Security
  * Author URI: http://www.wpwhitesecurity.com/
  * Version: 1.0.0
