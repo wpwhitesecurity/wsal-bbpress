@@ -105,20 +105,14 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 	public function CheckForumChange( $post_id, $newpost, $oldpost ) {
 		if ( $this->CheckBBPress( $oldpost ) ) {
 			$changes = 0 + $this->EventForumCreation( $oldpost, $newpost );
-			// Change Visibility.
 			if ( ! $changes ) {
+				// Change Visibility.
 				$changes = $this->EventForumChangedVisibility( $oldpost );
-			}
-			// Change Type.
-			if ( ! $changes ) {
+				// Change Type.
 				$changes = $this->EventForumChangedType( $oldpost );
-			}
-			// Change status.
-			if ( ! $changes ) {
+				// Change status.
 				$changes = $this->EventForumChangedStatus( $oldpost );
-			}
-			// Change Order, Parent or URL.
-			if ( ! $changes ) {
+				// Change Order, Parent or URL.
 				$changes = $this->EventForumChanged( $oldpost, $newpost );
 			}
 		}

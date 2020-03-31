@@ -4,6 +4,7 @@
  * Plugin URI: https://www.wpsecurityauditlog.com/
  * Description: An addon to the WP Security Audit Log Plugin to track events within the BBPress plugin.
  * Text Domain: wp-security-audit-log
+ * Domain Path: /languages
  * Author: WP White Security
  * Author URI: http://www.wpwhitesecurity.com/
  * Version: 1.0.0
@@ -169,24 +170,30 @@ function wsal_bbpress_add_custom_event_objects( $objects ) {
 }
 
 /**
- * Adds new custom event object text for our plugin
+ * Adds new meta formatting for our plugion
  *
- * @method wsal_bbpress_add_custom_event_object_text
+ * @method wsal_wpforms_add_custom_meta_format
  * @since  1.0.0
- * @param string $display the text to display.
- * @param string $object the current object type.
- * @return string
  */
-function wsal_bbpress_add_custom_event_object_text( $display, $object ) {
-	if ( 'bbpress' === $object ) {
-			$display = __( 'BBPress', 'wp-security-audit-log' );
+function wsal_bbpress_add_custom_meta_format( $value, $name ) {
+	$check_value = (string) $value;
+  if ( '%EditorLinkForum%' === $name ) {
+		if ( 'NULL' !== $check_value ) {
+			return '<a target="_blank" href="' . esc_url( $value ) . '">' . __( 'View the Forum in editor', 'wp-security-audit-log' ) . '</a>';
+		} else {
+			return '';
+		}
 	}
-	if ( 'bbpress-forum' === $object ) {
-			$display = __( 'BBPress Forum', 'wp-security-audit-log' );
+  if ( '%EditorLinkTopic%' === $name ) {
+		if ( 'NULL' !== $check_value ) {
+			  return '<a target="_blank" href="' . esc_url( $value ) . '">' . __( 'View the Topic in editor', 'wp-security-audit-log' ) . '</a>';
+		} else {
+			return '';
+		}
 	}
-
-	return $display;
+	return $value;
 }
 
-add_filter( 'wsal_event_objects', 'wsal_bbpress_add_custom_event_objects' );
-add_filter( 'wsal_event_object_text', 'wsal_bbpress_add_custom_event_object_text', 10, 2 );
+add_filter( 'wsal_event_objects', 'wsal_bbpress_add_custom_event_objects', 10, 2 );
+add_filter( 'wsal_link_filter', 'wsal_bbpress_add_custom_meta_format', 10, 2 );
+add_filter( 'wsal_meta_formatter_custom_formatter', 'wsal_bbpress_add_custom_meta_format', 10, 2 );
