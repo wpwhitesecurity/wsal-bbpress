@@ -3,7 +3,7 @@ Contributors: WPWhiteSecurity
 Donate link: https://www.wpsecurityauditlog.com
 Tags: bbpress, wordpress security plugin, wordpress security audit log, audit log, activity logs, event log wordpress, wordpress user tracking, wordpress activity log, wordpress audit, security event log, audit trail, wordpress security monitor, wordpress admin, wordpress admin monitoring, user activity, admin, multisite, dashboard, notification, wordpress monitoring, email notification, wordpress email alerts, SMS messages, tracking, user tracking, user activity report, wordpress audit trail
 Requires at least: 5.0
-Tested up to: 5.3.2
+Tested up to: 5.4
 Stable tag: 1.0.0
 Requires PHP: 5.6
  
