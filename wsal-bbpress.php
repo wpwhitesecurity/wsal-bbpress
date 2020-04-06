@@ -56,7 +56,7 @@
 				);
 			?>
 		</div>
-	<?php elseif( ! class_exists( 'WpSecurityAuditLog' ) ) : ?>
+	<?php elseif ( ! class_exists( 'WpSecurityAuditLog' ) ) : ?>
 		<div class="notice notice-success is-dismissible wsaf-wpforms-notice">
 			<?php
 				printf(
