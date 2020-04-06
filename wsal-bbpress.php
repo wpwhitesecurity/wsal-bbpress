@@ -53,8 +53,7 @@ function wsal_bbpress_install_notice() { ?>
 if ( ! class_exists( 'WpSecurityAuditLog' ) && ! class_exists( 'WSAL_AlertManager' ) ) {
 	// Check if the notice was already dismissed by the user.
 	if ( get_option( 'wsal_bbpress_notice_dismissed' ) != true ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison -- this may be truthy and not explicitly bool
-		if ( ! class_exists( 'WSAL_PluginInstallAndActivate' ) && ! class_exists( 'WSAL_PluginInstallerAction' ) ) {
-			require_once 'wp-security-audit-log/classes/PluginInstallandActivate.php';
+		if ( ! class_exists( 'WSAL_PluginInstallerAction' ) ) {
 			require_once 'wp-security-audit-log/classes/PluginInstallerAction.php';
 		}
 		$plugin_installer = new WSAL_PluginInstallerAction();
