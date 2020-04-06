@@ -56,7 +56,7 @@
 				);
 			?>
 		</div>
-	<?php else : ?>
+	<?php elseif( ! class_exists( 'WpSecurityAuditLog' ) ) : ?>
 		<div class="notice notice-success is-dismissible wsaf-wpforms-notice">
 			<?php
 				printf(
@@ -80,8 +80,13 @@ if ( ! class_exists( 'WpSecurityAuditLog' ) && ! class_exists( 'WSAL_AlertManage
 		if ( ! class_exists( 'WSAL_PluginInstallerAction' ) ) {
 			require_once 'wp-security-audit-log/classes/PluginInstallerAction.php';
 		}
-		$plugin_installer = new WSAL_PluginInstallerAction();
-		add_action( 'admin_notices', 'wsal_bbpress_install_notice' );
+    $plugin_installer = new WSAL_PluginInstallerAction();
+    if ( is_multisite() && is_network_admin() ) {
+      add_action( 'admin_notices', 'wsal_bbpress_install_notice' );
+      add_action( 'network_admin_notices', 'wsal_bbpress_install_notice', 10, 1 );
+    } elseif ( ! is_multisite() ) {
+      add_action( 'admin_notices', 'wsal_bbpress_install_notice' );
+    }
 	}
 } else {
 	// Reset the notice if the class is not found.
