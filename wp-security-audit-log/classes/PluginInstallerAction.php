@@ -8,14 +8,14 @@
  * @package Wsal
  */
 
-if ( ! class_exists( 'WSAL_PluginInstallerAction' ) ) {
+if ( ! class_exists( 'WSALAddon_PluginInstallerAction' ) ) {
 
 	/**
 	 * Class to handle the installtion and activation of plugins.
 	 *
 	 * @since 4.0.1
 	 */
-	class WSAL_PluginInstallerAction {
+	class WSALAddon_PluginInstallerAction {
 
 		public function __construct() {
 	 		$this->register();
