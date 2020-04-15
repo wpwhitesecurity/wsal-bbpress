@@ -10,8 +10,7 @@ jQuery( document ).ready( function() {
   });
 
   // Add on installer
-  // Add on installer
-  jQuery( ".install-addon:not(.disabled)" ).click(
+  jQuery( ".install-wsal:not(.disabled)" ).click(
     function (e) {
       jQuery( this ).html( WSALWPFormsData.installing );
       var currentButton     = jQuery( this );
@@ -28,7 +27,7 @@ jQuery( document ).ready( function() {
           dataType : "json",
           url: WSALWPFormsData.ajaxURL,
           data : {
-            action: "run_addon_install",
+            action: "run_wsal_install",
             plugin_slug: PluginSlug,
             plugin_url: PluginDownloadUrl,
             is_network: isNetworkInstall,
