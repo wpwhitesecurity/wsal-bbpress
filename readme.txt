@@ -3,7 +3,7 @@ Contributors: WPWhiteSecurity
 Plugin URI: https://www.wpsecurityauditlog.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: activity log for bbPerss, WP Activity Log add-on, activity logs
+Tags: activity log for bbPerss, WP Activity Log extension, activity logs
 Requires at least: 3.6
 Tested up to: 5.3.2
 Stable tag: 1.0.0
@@ -20,7 +20,7 @@ Keep a record of the changes that happen on your bbPress plugin. For example whe
 Refer to the list of [activity log events for bbPress](https://www.wpsecurityauditlog.com/support-documentation/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of bbPress forum changes the plugin can keep a log of.
 
 #### About WP Activity Log
-[WP Activity Log](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks. 
+[WP Activity Log](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks.
 
 WP Activity Log is also the most highly rated WordPress activity log plugin and have been featured on popular sites such as GoDaddy, ManageWP, Pagely, Shout Me Loud and WPKube.
 
@@ -29,11 +29,11 @@ WP Activity Log is also the most highly rated WordPress activity log plugin and 
 To keep a log of the changes that happen on your bbPress plugin, forums, topics and other plugin components simply:
 
 1. Install the [WP Activity Log plugin](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description)
-1. Install this add-on from the section <i>Enable/disable events</i> > <i>Third party add-ons</i>.
+1. Install this extension from the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
 
-### With this add-on you can keep a log of:
+### With this extension you can keep a log of:
 
-Some of the changes you can keep a log of when you install this add-on with the WP Activity Log plugin are, when a user:
+Some of the changes you can keep a log of when you install this extension with the WP Activity Log plugin are, when a user:
 
 * Adds, modifies, renames or deletes a forum
 * Changes the status, visibility, type, auto role and other forum settings
@@ -45,24 +45,24 @@ Refer to the [activity logs event IDs for bbPress](Refer to the list of [activit
 
 == Installation ==
 
-=== Install this add-on for bbPress from within WP Activity Log (easiest method) ===
+=== Install this extension for bbPress from within WP Activity Log (easiest method) ===
 
-1. Navigate to the section <i>Enable/disable events</i> > <i>Third party add-ons</i>.
-1. Click <i>Install add-on</i> under the bbPress logo and add-on description.
+1. Navigate to the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
+1. Click <i>Install extension</i> under the bbPress logo and extension description.
 
-=== Install this add-on from within WordPress ===
+=== Install this extension from within WordPress ===
 
 1. Ensure WP Activity Log is already installed.
 1. Visit 'Plugins > Add New'.
-1. Search for 'WP Activity Log add-on for bbPress'.
-1. Install and activate the add-on.
+1. Search for 'WP Activity Log extension for bbPress'.
+1. Install and activate the extension.
 
-=== Install this add-on manually ===
+=== Install this extension manually ===
 
 1. Ensure WP Activity Log is already installed.
 1. Download the plugin and extract the files.
 1. Upload the `wsal-bbpress` folder to the `/wp-content/plugins/` folder on your website.
-1. Activate the WP Activity Log add-on for bbPress plugin from the 'Plugins' menu in WordPress.
+1. Activate the WP Activity Log extension for bbPress plugin from the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
 
@@ -71,7 +71,7 @@ Please refer to our [Support & Documentation pages](https://www.wpsecurityauditl
 
 == Screenshots ==
 
-1. The easiest way to install the add-on is from within the WP Activity Log plugin.
+1. The easiest way to install the extension is from within the WP Activity Log plugin.
 1. Forms, entries, notifications and other bbPress plugin changes reported in the WordPress activity log.
 
 == Changelog ==
