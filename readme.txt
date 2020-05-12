@@ -1,6 +1,6 @@
 === WP Activity Log for bbPress ===
 Contributors: WPWhiteSecurity
-Plugin URI: https://www.wpsecurityauditlog.com
+Plugin URI: https://wpactivitylog.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: activity log for bbPerss, WP Activity Log extension, activity logs
@@ -17,10 +17,10 @@ bbPress is forum software from the creators of WordPress. Quickly setup a place 
 
 Keep a record of the changes that happen on your bbPress plugin. For example when someone creates, modifies or deletes a forum, changes topics or changes the forums settings.
 
-Refer to the list of [activity log events for bbPress](https://www.wpsecurityauditlog.com/support-documentation/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of bbPress forum changes the plugin can keep a log of.
+Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of bbPress forum changes the plugin can keep a log of.
 
 #### About WP Activity Log
-[WP Activity Log](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks.
+[WP Activity Log](https://wpactivitylog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks.
 
 WP Activity Log is also the most highly rated WordPress activity log plugin and have been featured on popular sites such as GoDaddy, ManageWP, Pagely, Shout Me Loud and WPKube.
 
@@ -28,7 +28,7 @@ WP Activity Log is also the most highly rated WordPress activity log plugin and 
 
 To keep a log of the changes that happen on your bbPress plugin, forums, topics and other plugin components simply:
 
-1. Install the [WP Activity Log plugin](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description)
+1. Install the [WP Activity Log plugin](https://wpactivitylog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description)
 1. Install this extension from the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
 
 ### With this extension you can keep a log of:
@@ -41,7 +41,7 @@ Some of the changes you can keep a log of when you install this extension with t
 * Adds, modifies, renames or deletes a topic,
 * Changes the roles of users in the forum
 
-Refer to the [activity logs event IDs for bbPress](Refer to the list of [activity log events for bbPress](https://www.wpsecurityauditlog.com/support-documentation/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of the changes the plugin can keep a log of.
+Refer to the [activity logs event IDs for bbPress](Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of the changes the plugin can keep a log of.
 
 == Installation ==
 
@@ -67,7 +67,7 @@ Refer to the [activity logs event IDs for bbPress](Refer to the list of [activit
 == Frequently Asked Questions ==
 
 = Support and Documentation =
-Please refer to our [Support & Documentation pages](https://www.wpsecurityauditlog.com/support-documentation/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Activity Log plugin.
+Please refer to our [Support & Documentation pages](https://wpactivitylog.com/support/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Activity Log plugin.
 
 == Screenshots ==
 

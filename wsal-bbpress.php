@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Activity Log for for bbPress
- * Plugin URI: https://www.wpsecurityauditlog.com/
+ * Plugin URI: https://wpactivitylog.com/
  * Description: An extension to the WP Activity Log Plugin to track events within the bbPress plugin.
  * Text Domain: wp-security-audit-log
  * Domain Path: /languages

@@ -336,7 +336,7 @@ msgid "WP Activity Log for BBPress"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpsecurityauditlog.com/"
+msgid "https://wpactivitylog.com/"
 msgstr ""
 
 #. Description of the plugin/theme
