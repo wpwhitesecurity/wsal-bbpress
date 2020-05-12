@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP Security Audit Log for BBPress\n"
+"Project-Id-Version: WP Activity Log for BBPress\n"
 "POT-Creation-Date: 2020-03-27 18:06+0000\n"
 "PO-Revision-Date: 2020-03-27 18:06+0000\n"
 "Last-Translator: \n"
@@ -291,12 +291,12 @@ msgstr ""
 
 #: wsal-bbpress.php:42
 msgid ""
-"This is an add-on for the WP Security Audit Log plugin. Please install it to "
+"This is an add-on for the WP Activity Log plugin. Please install it to "
 "use this add-on."
 msgstr ""
 
 #: wsal-bbpress.php:45
-msgid "Install WP Security Audit Log."
+msgid "Install WP Activity Log."
 msgstr ""
 
 #: wsal-bbpress.php:83
@@ -332,7 +332,7 @@ msgid "View the Topic in editor"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WP Security Audit Log for BBPress"
+msgid "WP Activity Log for BBPress"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -341,7 +341,7 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"An addon to the WP Security Audit Log Plugin to track events within the "
+"An addon to the WP Activity Log Plugin to track events within the "
 "BBPress plugin."
 msgstr ""
 
