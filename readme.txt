@@ -1,9 +1,9 @@
-=== WP Security Audit Log for bbPress ===
+=== WP Activity Log for bbPress ===
 Contributors: WPWhiteSecurity
-Plugin URI: https://www.wpsecurityauditlog.com
+Plugin URI: https://wpactivitylog.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
-Tags: activity log for bbPerss, WP Security Audit Log add-on, activity logs
+Tags: activity log for bbPress, WP Activity Log extension, activity logs
 Requires at least: 3.6
 Tested up to: 5.3.2
 Stable tag: 1.0.0
@@ -17,23 +17,23 @@ bbPress is forum software from the creators of WordPress. Quickly setup a place 
 
 Keep a record of the changes that happen on your bbPress plugin. For example when someone creates, modifies or deletes a forum, changes topics or changes the forums settings.
 
-Refer to the list of [activity log events for bbPress](https://www.wpsecurityauditlog.com/support-documentation/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of bbPress forum changes the plugin can keep a log of.
+Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-activity-log-event-ids/#bbpress) for a complete list of bbPress forum changes the plugin can keep a log of.
 
-#### About WP Security Audit Log
-[WP Security Audit Log](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks. 
+#### About WP Activity Log
+[WP Activity Log](https://wpactivitylog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks.
 
-WP Security Audit Log is also the most highly rated WordPress activity log plugin and have been featured on popular sites such as GoDaddy, ManageWP, Pagely, Shout Me Loud and WPKube.
+WP Activity Log is also the most highly rated WordPress activity log plugin and have been featured on popular sites such as WPBeginner, GoDaddy and Kinsta.
 
 ### Getting started: activity logs for bbPress
 
 To keep a log of the changes that happen on your bbPress plugin, forums, topics and other plugin components simply:
 
-1. Install the [WP Security Audit Log plugin](https://www.wpsecurityauditlog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description)
-1. Install this add-on from the section <i>Enable/disable events</i> > <i>Third party add-ons</i>.
+1. Install the [WP Activity Log plugin](https://wpactivitylog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description)
+1. Install this extension from the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
 
-### With this add-on you can keep a log of:
+### With this extension you can keep a log of:
 
-Some of the changes you can keep a log of when you install this add-on with the WP Security Audit Log plugin are, when a user:
+Some of the changes you can keep a log of when you install this extension with the WP Activity Log plugin are, when a user:
 
 * Adds, modifies, renames or deletes a forum
 * Changes the status, visibility, type, auto role and other forum settings
@@ -41,40 +41,45 @@ Some of the changes you can keep a log of when you install this add-on with the 
 * Adds, modifies, renames or deletes a topic,
 * Changes the roles of users in the forum
 
-Refer to the [activity logs event IDs for bbPress](Refer to the list of [activity log events for bbPress](https://www.wpsecurityauditlog.com/support-documentation/list-wordpress-audit-trail-alerts/#bbpress) for a complete list of the changes the plugin can keep a log of.
+Refer to the [activity logs event IDs for bbPress](Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-activity-log-event-ids/#bbpress) for a complete list of the changes the plugin can keep a log of.
 
 == Installation ==
 
-=== Install this add-on for bbPress from within WP Security Audit Log (easiest method) ===
+=== Install this extension for bbPress from within WP Activity Log (easiest method) ===
 
-1. Navigate to the section <i>Enable/disable events</i> > <i>Third party add-ons</i>.
-1. Click <i>Install add-on</i> under the bbPress logo and add-on description.
+1. Navigate to the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
+1. Click <i>Install extension</i> under the bbPress logo and extension description.
 
-=== Install this add-on from within WordPress ===
+=== Install this extension from within WordPress ===
 
-1. Ensure WP Security Audit Log is already installed.
+1. Ensure WP Activity Log is already installed.
 1. Visit 'Plugins > Add New'.
-1. Search for 'WP Security Audit Log add-on for bbPress'.
-1. Install and activate the add-on.
+1. Search for 'WP Activity Log extension for bbPress'.
+1. Install and activate the extension.
 
-=== Install this add-on manually ===
+=== Install this extension manually ===
 
-1. Ensure WP Security Audit Log is already installed.
+1. Ensure WP Activity Log is already installed.
 1. Download the plugin and extract the files.
 1. Upload the `wsal-bbpress` folder to the `/wp-content/plugins/` folder on your website.
-1. Activate the WP Security Audit Log add-on for bbPress plugin from the 'Plugins' menu in WordPress.
+1. Activate the WP Activity Log extension for bbPress plugin from the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
 
 = Support and Documentation =
-Please refer to our [Support & Documentation pages](https://www.wpsecurityauditlog.com/support-documentation/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Security Audit Log plugin.
+Please refer to our [Support & Documentation pages](https://wpactivitylog.com/support/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Activity Log plugin.
 
 == Screenshots ==
 
-1. The easiest way to install the add-on is from within the WP Security Audit Log plugin.
+1. The easiest way to install the extension is from within the WP Activity Log plugin.
 1. Forms, entries, notifications and other bbPress plugin changes reported in the WordPress activity log.
 
 == Changelog ==
+
+= 1.0.1 (2020-05-20) =
+
+**Main plugin rename update**
+	*[WP Security Audit Log has been renamed to WP Activity Log](https://wpactivitylog.com/wp-security-audit-log-renamed-wp-activity-log/).
 
 = 1.0.0 (2020-04-15) =
 

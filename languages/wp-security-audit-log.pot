@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP Security Audit Log for BBPress\n"
+"Project-Id-Version: WP Activity Log for BBPress\n"
 "POT-Creation-Date: 2020-03-27 18:06+0000\n"
 "PO-Revision-Date: 2020-03-27 18:06+0000\n"
 "Last-Translator: \n"
@@ -22,21 +22,21 @@ msgstr ""
 
 #: wp-security-audit-log/classes/PluginInstallandActivate.php:80
 msgid ""
-"To keep a log of changes done in any of the below plugins install the add-on "
-"for that plugin by clicking the Install Add-on button."
+"To keep a log of changes done in any of the below plugins install the extension "
+"for that plugin by clicking the Install Extension button."
 msgstr ""
 
 #: wp-security-audit-log/classes/PluginInstallandActivate.php:100
-msgid "Addon installed, activate now?"
+msgid "Extension installed, activate now?"
 msgstr ""
 
 #: wp-security-audit-log/classes/PluginInstallandActivate.php:102
 #: wsal-bbpress.php:85
-msgid "Addon installed"
+msgid "Extension installed"
 msgstr ""
 
 #: wp-security-audit-log/classes/PluginInstallandActivate.php:104
-msgid "Install Add-on"
+msgid "Install Extension"
 msgstr ""
 
 #: wp-security-audit-log/classes/PluginInstallerAction.php:57
@@ -291,12 +291,12 @@ msgstr ""
 
 #: wsal-bbpress.php:42
 msgid ""
-"This is an add-on for the WP Security Audit Log plugin. Please install it to "
-"use this add-on."
+"This is an extension for the WP Activity Log plugin. Please install it to "
+"use this extension."
 msgstr ""
 
 #: wsal-bbpress.php:45
-msgid "Install WP Security Audit Log."
+msgid "Install WP Activity Log."
 msgstr ""
 
 #: wsal-bbpress.php:83
@@ -308,7 +308,7 @@ msgid "Already installed"
 msgstr ""
 
 #: wsal-bbpress.php:86
-msgid "Addon activated"
+msgid "Extension activated"
 msgstr ""
 
 #: wsal-bbpress.php:87
@@ -332,16 +332,16 @@ msgid "View the Topic in editor"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WP Security Audit Log for BBPress"
+msgid "WP Activity Log for BBPress"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpsecurityauditlog.com/"
+msgid "https://wpactivitylog.com/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"An addon to the WP Security Audit Log Plugin to track events within the "
+"An extensionn to the WP Activity Log Plugin to track events within the "
 "BBPress plugin."
 msgstr ""
 
