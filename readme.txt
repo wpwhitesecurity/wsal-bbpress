@@ -5,8 +5,8 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: activity log for bbPress, WP Activity Log extension, activity logs
 Requires at least: 3.6
-Tested up to: 5.3.2
-Stable tag: 1.0.0
+Tested up to: 5.4.1
+Stable tag: 1.0.1
 Requires PHP: 5.6
 
 Keep a log of changes that happen in the bbPress plugin, forums and more!
