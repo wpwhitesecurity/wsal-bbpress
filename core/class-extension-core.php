@@ -67,7 +67,7 @@ if ( ! class_exists( 'WSAL_Extension_Core' ) ) {
 			$language_path = basename( dirname( dirname( __FILE__ ) ) );
 			load_plugin_textdomain( 'wp-security-audit-log', FALSE, $language_path . '/languages' );
 			if ( isset( self::$extension_text_domain ) && ! empty( self::$extension_text_domain ) ) {
-				load_plugin_textdomain( 'wsal-bbpress', FALSE, $language_path . '/languages' );
+				load_plugin_textdomain( self::$extension_text_domain, FALSE, $language_path . '/languages' );
 			}
 		}
 
