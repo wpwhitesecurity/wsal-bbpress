@@ -34,8 +34,8 @@
 /*
 	REQUIRED. Here we include and fire up the main core class. This will be needed regardless so be sure to leave line 37-39 in tact.
 */
-require_once plugin_dir_path( __FILE__ ) . 'wsal-extension-core.php';
-$wsal_extension = WSAL_Extension_Core::get_instance();
+require_once plugin_dir_path( __FILE__ ) . 'core/class-extension-core.php';
+$wsal_extension = \WPWhiteSecurity\ActivityLog\Extensions\Core\WSAL_Extension_Core::get_instance();
 $wsal_extension->init();
 
 /**
