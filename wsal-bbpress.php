@@ -36,7 +36,7 @@
 */
 require_once plugin_dir_path( __FILE__ ) . 'core/class-extension-core.php';
 $plugin_text_domain =  'wsal-bbpress';
-$wsal_extension = new \WPWhiteSecurity\ActivityLog\Extensions\Core\WSAL_Extension_Core( $plugin_text_domain );
+$wsal_extension = new \WPWhiteSecurity\ActivityLog\Extensions\Common\Core( $plugin_text_domain );
 
 /**
  * Adds new custom event objects for our plugin
