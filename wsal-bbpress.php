@@ -6,7 +6,7 @@
  * Text Domain: wsal-bbpress
  * Domain Path: /languages
  * Author: WP White Security
- * Author URI: http://www.wpwhitesecurity.com/
+ * Author URI: https://www.wpwhitesecurity.com/
  * Version: 1.0.1
  * License: GPL2
  *
