@@ -1,72 +1,86 @@
+=== WP Activity Log for bbPress ===
+Contributors: WPWhiteSecurity
+Plugin URI: https://wpactivitylog.com
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl.html
+Tags: activity log for bbPress, WP Activity Log extension, activity logs
+Requires at least: 3.6
+Tested up to: 5.5
+Stable tag: 1.0.1
+Requires PHP: 5.6
 
-# WP Activity Log Extension Core
+Keep a log of changes that happen in the bbPress plugin, forums and more!
 
-To keep things easier to manage and have a central repo with the core code for all our extensions, we use a master repository which contains the “core” files (these are parts of extensions which don't change) such as the PluginInstaller class, filters for adding custom sensors and so on.
+== Description ==
 
-We use this setup so any updates to the “core” can be simply fetched into all the extensions and merge any changes with ease.
+bbPress is forum software from the creators of WordPress. Quickly setup a place for asyncronous discussion, subscriptions, and more!
 
-## [](https://github.com/WPWhiteSecurity/wsal-extension-template#how-does-it-work)How does it work?
+Keep a record of the changes that happen on your bbPress plugin. For example when someone creates, modifies or deletes a forum, changes topics or changes the forums settings.
 
-With this repository, we hold only a small amount of code which is typically used in all extensions. The core handles loading the text-domain, notices, plugin installer and functions needed to load custom sensors and events and thats it.
+Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-activity-log-event-ids/#bbpress) for a complete list of bbPress forum changes the plugin can keep a log of.
 
-By simply copying the content of this repository into your new extension as a base, you can then create your plugins main file (see example below). The main thing to remember is to include the core class from within your new extension - using the function provided below, you can simply call the "core", passing your plugins text-domain on for loading if you wish.
+#### About WP Activity Log
+[WP Activity Log](https://wpactivitylog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) is the most comprehensive real time activity log plugin for WordPress. It helps thousands administrators and security professionals keep an eye on what is happening on their websites and multisite networks.
 
-## [](https://github.com/WPWhiteSecurity/wsal-extension-template#creating-a-new-extension)Creating a new extension
+WP Activity Log is also the most highly rated WordPress activity log plugin and have been featured on popular sites such as WPBeginner, GoDaddy and Kinsta.
 
-Create a new repository for your new extension. The naming format for new repos is “wsal-pluginname”. So for example if we are making an extension for wpforms, the repo should be called “wsal-wpforms”. Clone the master repository or download it and extract its content into your new repository. To clone you can use the following command
+### Getting started: activity logs for bbPress
 
-    git clone https://github.com/WPWhiteSecurity/wsal-extension-template.git
+To keep a log of the changes that happen on your bbPress plugin, forums, topics and other plugin components simply:
 
-Add the master repository as upstream to new repository with the below command:
+1. Install the [WP Activity Log plugin](https://wpactivitylog.com/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description)
+1. Install this extension from the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
 
-    git remote add upstream https://github.com/WPWhiteSecurity/wsal-extension-template.git
+### With this extension you can keep a log of:
 
-From this point onwards, you can now go ahead and develop your new extension as normal. However, should you wish to pull any changes made on the master repository into your extension, run the following from your “child” branch.
+Some of the changes you can keep a log of when you install this extension with the WP Activity Log plugin are, when a user:
 
-    git pull upstream master --allow-unrelated-histories
-Note - be sure to ignore any changes to the readme.md file if you have made any customizations to this when merging into your custom extension's repository.
+* Adds, modifies, renames or deletes a forum
+* Changes the status, visibility, type, auto role and other forum settings
+* Changes global plugin settings such as the posting throttle time
+* Adds, modifies, renames or deletes a topic,
+* Changes the roles of users in the forum
 
-## [](https://github.com/WPWhiteSecurity/wsal-extension-template#the-main-extension-plugin-file)The main extension plugin file
+Refer to the [activity logs event IDs for bbPress](Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-activity-log-event-ids/#bbpress) for a complete list of the changes the plugin can keep a log of.
 
-When working on a new extension, you must ensure you include the core files in your main plugin file - see below for an example. Be sure to update the information and text-domain etc accordingly.
+== Installation ==
 
-    <?php
-    /**
-     * Plugin Name: WP Activity Log Extension for (Plugin name)
-     * Plugin URI: https://wpactivitylog.com/extensions/
-     * Description: A WP Activity Log plugin extension
-     * Text Domain: wp-security-audit-log
-     * Author: WP White Security
-     * Author URI: http://www.wpwhitesecurity.com/
-     * Version: 1.0.0
-     * License: GPL2
-     * Network: true
-     *
-     * @package WsalExtensionCore
-     * @subpackage Wsal Custom Events Loader
-     */
+=== Install this extension for bbPress from within WP Activity Log (easiest method) ===
 
-    /*
-     Copyright(c) 2020  WP White Security  (email : info@wpwhitesecurity.com)
-     This program is free software; you can redistribute it and/or modify
-     it under the terms of the GNU General Public License, version 2, as
-     published by the Free Software Foundation.
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     GNU General Public License for more details.
-     You should have received a copy of the GNU General Public License
-     along with this program; if not, write to the Free Software
-     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-    */
+1. Navigate to the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
+1. Click <i>Install extension</i> under the bbPress logo and extension description.
 
-    /*
-     REQUIRED. Here we include and fire up the main core class. This will be needed regardless so be sure to leave line 37-39 in tact.
-    */
-    require_once plugin_dir_path( __FILE__ ) . 'core/class-extension-core.php';
-    $core_settings = array(
-    	'text_domain'      => 'wsal-yoast',
-    	'custom_alert_path' => trailingslashit( dirname( __FILE__ ) ) . 'wp-security-audit-log',
-    	'custom_sensor_path' => trailingslashit( trailingslashit( dirname( __FILE__ ) ) . 'wp-security-audit-log' . DIRECTORY_SEPARATOR . 'custom-sensors' ),
-    );
-    $wsal_extension = new WPWhiteSecurity\ActivityLog\Extensions\Common\Core( $core_settings );
+=== Install this extension from within WordPress ===
+
+1. Ensure WP Activity Log is already installed.
+1. Visit 'Plugins > Add New'.
+1. Search for 'WP Activity Log extension for bbPress'.
+1. Install and activate the extension.
+
+=== Install this extension manually ===
+
+1. Ensure WP Activity Log is already installed.
+1. Download the plugin and extract the files.
+1. Upload the `wsal-bbpress` folder to the `/wp-content/plugins/` folder on your website.
+1. Activate the WP Activity Log extension for bbPress plugin from the 'Plugins' menu in WordPress.
+
+== Frequently Asked Questions ==
+
+= Support and Documentation =
+Please refer to our [Support & Documentation pages](https://wpactivitylog.com/support/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Activity Log plugin.
+
+== Screenshots ==
+
+1. The easiest way to install the extension is from within the WP Activity Log plugin.
+1. Forms, entries, notifications and other bbPress plugin changes reported in the WordPress activity log.
+
+== Changelog ==
+
+= 1.0.1 (2020-05-20) =
+
+**Main plugin rename update**
+	*[WP Security Audit Log has been renamed to WP Activity Log](https://wpactivitylog.com/wp-security-audit-log-renamed-wp-activity-log/).
+
+= 1.0.0 (2020-04-15) =
+
+	*Initial release.
