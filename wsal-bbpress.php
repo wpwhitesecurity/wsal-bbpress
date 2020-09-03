@@ -3,10 +3,10 @@
  * Plugin Name: WP Activity Log for bbPress
  * Plugin URI: https://wpactivitylog.com/
  * Description: An extension to the WP Activity Log Plugin to track events within the bbPress plugin.
- * Text Domain: wp-security-audit-log
+ * Text Domain: wsal-bbpress
  * Domain Path: /languages
  * Author: WP White Security
- * Author URI: http://www.wpwhitesecurity.com/
+ * Author URI: https://www.wpwhitesecurity.com/
  * Version: 1.0.1
  * License: GPL2
  *
