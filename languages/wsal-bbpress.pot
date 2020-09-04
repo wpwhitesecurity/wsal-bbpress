@@ -1,46 +1,37 @@
-#, fuzzy
+# Copyright (C) 2020 WP White Security
+# This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP Activity Log for BBPress\n"
-"POT-Creation-Date: 2020-03-27 18:06+0000\n"
-"PO-Revision-Date: 2020-03-27 18:06+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: WP Activity Log for bbPress 1.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wsal-bbpress\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.13\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: wsal-bbpress.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"POT-Creation-Date: 2020-09-03T13:45:43+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0-alpha\n"
+"X-Domain: wsal-bbpress\n"
 
-#: wp-security-audit-log/classes/PluginInstallandActivate.php:80
-msgid ""
-"To keep a log of changes done in any of the below plugins install the extension "
-"for that plugin by clicking the Install Extension button."
+#. Plugin Name of the plugin
+msgid "WP Activity Log for bbPress"
 msgstr ""
 
-#: wp-security-audit-log/classes/PluginInstallandActivate.php:100
-msgid "Extension installed, activate now?"
+#. Plugin URI of the plugin
+msgid "https://wpactivitylog.com/"
 msgstr ""
 
-#: wp-security-audit-log/classes/PluginInstallandActivate.php:102
-#: wsal-bbpress.php:85
-msgid "Extension installed"
+#. Description of the plugin
+msgid "An extension to the WP Activity Log Plugin to track events within the bbPress plugin."
 msgstr ""
 
-#: wp-security-audit-log/classes/PluginInstallandActivate.php:104
-msgid "Install Extension"
+#. Author of the plugin
+msgid "WP White Security"
 msgstr ""
 
-#: wp-security-audit-log/classes/PluginInstallerAction.php:57
-msgid "Tried to install a zip or slug that was not in the allowed list"
+#. Author URI of the plugin
+msgid "https://www.wpwhitesecurity.com/"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:4
@@ -64,9 +55,7 @@ msgid "User changed status of a forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:7
-msgid ""
-"Changed the status of the forum %ForumName% %LineBreak% Previous Status: "
-"%OldStatus% %LineBreak% New Status: %NewStatus% %LineBreak% %EditorLinkForum%"
+msgid "Changed the status of the forum %ForumName% %LineBreak% Previous Status: %OldStatus% %LineBreak% New Status: %NewStatus% %LineBreak% %EditorLinkForum%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:8
@@ -74,10 +63,7 @@ msgid "User changed visibility of a forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:8
-msgid ""
-"Changed the visibility of the forum %ForumName% %LineBreak% Previous "
-"visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% "
-"%LineBreak% %EditorLinkForum%"
+msgid "Changed the visibility of the forum %ForumName% %LineBreak% Previous visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% %LineBreak% %EditorLinkForum%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:9
@@ -85,9 +71,7 @@ msgid "User changed the URL of a forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:9
-msgid ""
-"Changed the URL of the forum %ForumName% %LineBreak% Previous URL: %OldUrl% "
-"%LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkForum%"
+msgid "Changed the URL of the forum %ForumName% %LineBreak% Previous URL: %OldUrl% %LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkForum%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:10
@@ -95,10 +79,7 @@ msgid "User changed order of a forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:10
-msgid ""
-"Changed the sorting order of the forum %ForumName% %LineBreak% Previous "
-"sorting order: %OldOrder% %LineBreak% New sorting order: %NewOrder% "
-"%LineBreak% %EditorLinkForum%"
+msgid "Changed the sorting order of the forum %ForumName% %LineBreak% Previous sorting order: %OldOrder% %LineBreak% New sorting order: %NewOrder% %LineBreak% %EditorLinkForum%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:11
@@ -130,9 +111,7 @@ msgid "User changed the parent of a forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:14
-msgid ""
-"Changed the parent of the forum %ForumName% %LineBreak% Previous parent: "
-"%OldParent% %LineBreak% New parent: %NewParent% %LineBreak% %EditorLinkForum%"
+msgid "Changed the parent of the forum %ForumName% %LineBreak% Previous parent: %OldParent% %LineBreak% New parent: %NewParent% %LineBreak% %EditorLinkForum%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:15
@@ -140,9 +119,7 @@ msgid "User changed type of a forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:15
-msgid ""
-"Changed the type of the forum %ForumName% %LineBreak% Previous type: %OldType"
-"% %LineBreak% New type: %NewType% %LineBreak% %EditorLinkForum%"
+msgid "Changed the type of the forum %ForumName% %LineBreak% Previous type: %OldType% %LineBreak% New type: %NewType% %LineBreak% %EditorLinkForum%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:18
@@ -162,9 +139,7 @@ msgid "User changed status of a topic"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:20
-msgid ""
-"Changed the status of the topic %TopicName% %LineBreak% Previous status: "
-"%OldStatus% %LineBreak% New status: %NewStatus% %LineBreak% %EditorLinkTopic%"
+msgid "Changed the status of the topic %TopicName% %LineBreak% Previous status: %OldStatus% %LineBreak% New status: %NewStatus% %LineBreak% %EditorLinkTopic%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:21
@@ -172,9 +147,7 @@ msgid "User changed type of a topic"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:21
-msgid ""
-"Changed the type of the topic %TopicName% %LineBreak% Previous type: %OldType"
-"% %LineBreak% New type: %NewType% %LineBreak% %EditorLinkTopic%"
+msgid "Changed the type of the topic %TopicName% %LineBreak% Previous type: %OldType% %LineBreak% New type: %NewType% %LineBreak% %EditorLinkTopic%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:22
@@ -182,9 +155,7 @@ msgid "User changed URL of a topic"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:22
-msgid ""
-"Changed the URL of the topic %TopicName% %LineBreak% Previous URL: %OldUrl% "
-"%LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkTopic%"
+msgid "Changed the URL of the topic %TopicName% %LineBreak% Previous URL: %OldUrl% %LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkTopic%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:23
@@ -192,9 +163,7 @@ msgid "User changed the forum of a topic"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:23
-msgid ""
-"Changed the forum of the topic %TopicName% %LineBreak% Previous forum: "
-"%OldForum% %LineBreak% New forum: %NewForum% %LineBreak% %EditorLinkTopic%"
+msgid "Changed the forum of the topic %TopicName% %LineBreak% Previous forum: %OldForum% %LineBreak% New forum: %NewForum% %LineBreak% %EditorLinkTopic%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:24
@@ -226,10 +195,7 @@ msgid "User changed visibility of a topic"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:27
-msgid ""
-"Changed the visibility of the topic %TopicName% %LineBreak% Previous "
-"visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% "
-"%LineBreak% %EditorLinkTopic%"
+msgid "Changed the visibility of the topic %TopicName% %LineBreak% Previous visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% %LineBreak% %EditorLinkTopic%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:30
@@ -241,9 +207,7 @@ msgid "User changed forum's role"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:31
-msgid ""
-"Changed the forum user's auto role %LineBreak% Previous role: %OldRole% "
-"%LineBreak% New role: %NewRole%"
+msgid "Changed the forum user's auto role %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:32
@@ -259,9 +223,7 @@ msgid "User changed time to disallow post editing"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:33
-msgid ""
-"Changed the time to disallow post editing in the forums %LineBreak% Previous "
-"time: %OldTime% %LineBreak% New time: %NewTime%"
+msgid "Changed the time to disallow post editing in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:34
@@ -269,9 +231,7 @@ msgid "User changed the forum setting posting throttle time"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:34
-msgid ""
-"Changed the posting throttle time in the forums %LineBreak% Previous time: "
-"%OldTime% %LineBreak% New time: %NewTime%"
+msgid "Changed the posting throttle time in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:37
@@ -283,72 +243,21 @@ msgid "The forum role of a user was changed by another WordPress user"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:38
-msgid ""
-"Change the forum role of user %TargetUsername% %LineBreak% Previous role: "
-"%OldRole% %LineBreak% New role: %NewRole% %LineBreak% First name: %FirstName"
-"% %LineBreak% Last name: %LastName% %LineBreak% %EditUserLink%"
+msgid "Change the forum role of user %TargetUsername% %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole% %LineBreak% First name: %FirstName% %LineBreak% Last name: %LastName% %LineBreak% %EditUserLink%"
 msgstr ""
 
-#: wsal-bbpress.php:42
-msgid ""
-"This is an extension for the WP Activity Log plugin. Please install it to "
-"use this extension."
-msgstr ""
-
-#: wsal-bbpress.php:45
-msgid "Install WP Activity Log."
-msgstr ""
-
-#: wsal-bbpress.php:83
-msgid "Installing, please wait"
-msgstr ""
-
-#: wsal-bbpress.php:84
-msgid "Already installed"
-msgstr ""
-
-#: wsal-bbpress.php:86
-msgid "Extension activated"
-msgstr ""
-
-#: wsal-bbpress.php:87
-msgid "Install failed"
-msgstr ""
-
-#: wsal-bbpress.php:162
+#: wsal-bbpress.php:55
 msgid "BBPress"
 msgstr ""
 
-#: wsal-bbpress.php:163
+#: wsal-bbpress.php:56
 msgid "BBPress Forum"
 msgstr ""
 
-#: wsal-bbpress.php:182
+#: wsal-bbpress.php:75
 msgid "View the Forum in editor"
 msgstr ""
 
-#: wsal-bbpress.php:189
+#: wsal-bbpress.php:82
 msgid "View the Topic in editor"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "WP Activity Log for BBPress"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "https://wpactivitylog.com/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"An extensionn to the WP Activity Log Plugin to track events within the "
-"BBPress plugin."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "WP White Security"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://www.wpwhitesecurity.com/"
 msgstr ""

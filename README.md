@@ -1,4 +1,7 @@
-=== WP Activity Log for bbPress ===
+
+
+# WP Activity Log for bbPress
+
 Contributors: WPWhiteSecurity
 Plugin URI: https://wpactivitylog.com
 License: GPLv3
@@ -11,7 +14,7 @@ Requires PHP: 5.6
 
 Keep a log of changes that happen in the bbPress plugin, forums and more!
 
-== Description ==
+#### Description
 
 bbPress is forum software from the creators of WordPress. Quickly setup a place for asyncronous discussion, subscriptions, and more!
 
@@ -43,38 +46,38 @@ Some of the changes you can keep a log of when you install this extension with t
 
 Refer to the [activity logs event IDs for bbPress](Refer to the list of [activity log events for bbPress](https://wpactivitylog.com/support/kb/list-wordpress-activity-log-event-ids/#bbpress) for a complete list of the changes the plugin can keep a log of.
 
-== Installation ==
+#### Installation
 
-=== Install this extension for bbPress from within WP Activity Log (easiest method) ===
+#### Install this extension for bbPress from within WP Activity Log (easiest method)
 
 1. Navigate to the section <i>Enable/disable events</i> > <i>Third party extensions</i>.
 1. Click <i>Install extension</i> under the bbPress logo and extension description.
 
-=== Install this extension from within WordPress ===
+#### Install this extension from within WordPress
 
 1. Ensure WP Activity Log is already installed.
 1. Visit 'Plugins > Add New'.
 1. Search for 'WP Activity Log extension for bbPress'.
 1. Install and activate the extension.
 
-=== Install this extension manually ===
+#### Install this extension manually
 
 1. Ensure WP Activity Log is already installed.
 1. Download the plugin and extract the files.
 1. Upload the `wsal-bbpress` folder to the `/wp-content/plugins/` folder on your website.
 1. Activate the WP Activity Log extension for bbPress plugin from the 'Plugins' menu in WordPress.
 
-== Frequently Asked Questions ==
+#### Frequently Asked Questions
 
 = Support and Documentation =
 Please refer to our [Support & Documentation pages](https://wpactivitylog.com/support/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Activity Log plugin.
 
-== Screenshots ==
+####  Screenshots
 
 1. The easiest way to install the extension is from within the WP Activity Log plugin.
 1. Forms, entries, notifications and other bbPress plugin changes reported in the WordPress activity log.
 
-== Changelog ==
+####  Changelog
 
 = 1.0.2 (2020-09-04) =
 
