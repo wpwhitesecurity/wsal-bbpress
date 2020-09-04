@@ -7,7 +7,7 @@
  * Domain Path: /languages
  * Author: WP White Security
  * Author URI: https://www.wpwhitesecurity.com/
- * Version: 1.0.1
+ * Version: 1.0.2
  * License: GPL2
  *
  * @package Wsal
