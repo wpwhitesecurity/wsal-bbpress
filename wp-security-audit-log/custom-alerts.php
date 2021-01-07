@@ -4,7 +4,7 @@ $custom_alerts = array(
 	__( 'bbPress Forums', 'wsal-bbpress' ) => array(
 		__( 'Forums', 'wsal-bbpress' ) => array(
 			array( 8000, WSAL_INFORMATIONAL, __( 'User created new forum', 'wsal-bbpress' ), __( 'New forum called %ForumName% %LineBreak% %EditorLinkForum%', 'wsal-bbpress' ), 'bbpress-forum', 'created' ),
-			array( 8001, WSAL_MEDIUM, __( 'User changed status of a forum', 'wsal-bbpress' ), __( 'Changed the status of the forum %ForumName% %LineBreak% Previous Status: %OldStatus% %LineBreak% New Status: %NewStatus% %LineBreak% %EditorLinkForum%', 'wsal-bbpress' ), 'bbpress-forum', 'modified' ),
+			array( 8001, WSAL_MEDIUM, __( 'User changed status of a forum', 'wsal-bbpress' ), __( 'Changed the status of the forum %ForumName% %LineBreak% Previous status: %OldStatus% %LineBreak% New status: %NewStatus% %LineBreak% %EditorLinkForum%', 'wsal-bbpress' ), 'bbpress-forum', 'modified' ),
 			array( 8002, WSAL_MEDIUM, __( 'User changed visibility of a forum', 'wsal-bbpress' ), __( 'Changed the visibility of the forum %ForumName% %LineBreak% Previous visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% %LineBreak% %EditorLinkForum%', 'wsal-bbpress' ), 'bbpress-forum', 'modified' ),
 			array( 8003, WSAL_LOW, __( 'User changed the URL of a forum', 'wsal-bbpress' ), __( 'Changed the URL of the forum %ForumName% %LineBreak% Previous URL: %OldUrl% %LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkForum%', 'wsal-bbpress' ), 'bbpress-forum', 'modified' ),
 			array( 8004, WSAL_INFORMATIONAL, __( 'User changed order of a forum', 'wsal-bbpress' ), __( 'Changed the sorting order of the forum %ForumName% %LineBreak% Previous sorting order: %OldOrder% %LineBreak% New sorting order: %NewOrder% %LineBreak% %EditorLinkForum%', 'wsal-bbpress' ), 'bbpress-forum', 'modified' ),
@@ -28,14 +28,14 @@ $custom_alerts = array(
 		),
 
 		__( 'bbPress Settings', 'wsal-bbpress' ) => array(
-			array( 8009, WSAL_HIGH, __( 'User changed forum\'s role', 'wsal-bbpress' ), __( 'Changed the forum user\'s auto role %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole%', 'wsal-bbpress' ), 'bbpress', 'modified' ),
-			array( 8010, WSAL_CRITICAL, __( 'User changed option of a forum', 'wsal-bbpress' ), __( 'The option for anonymous posting on the forums', 'wsal-bbpress' ), 'bbpress', 'enabled' ),
-			array( 8012, WSAL_MEDIUM, __( 'User changed time to disallow post editing', 'wsal-bbpress' ), __( 'Changed the time to disallow post editing in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%', 'wsal-bbpress' ), 'bbpress', 'modified' ),
-			array( 8013, WSAL_HIGH, __( 'User changed the forum setting posting throttle time', 'wsal-bbpress' ), __( 'Changed the posting throttle time in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%', 'wsal-bbpress' ), 'bbpress', 'modified' ),
+			array( 8009, WSAL_HIGH, __( 'User changed forum\'s role', 'wsal-bbpress' ), __( 'Changed the bbPress setting <strong>Automatically give registered users a forum role</strong> %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole%', 'wsal-bbpress' ), 'bbpress', 'modified' ),
+			array( 8010, WSAL_CRITICAL, __( 'User changed option of a forum', 'wsal-bbpress' ), __( 'The bbPress setting <strong>Anonymous</strong> (allow guest users to post on the forums)', 'wsal-bbpress' ), 'bbpress', 'enabled' ),
+			array( 8012, WSAL_MEDIUM, __( 'User changed time to disallow post editing', 'wsal-bbpress' ), __( 'Changed the time of the bbPress setting <strong>Editing</strong>E (to allow users to edit their content after posting) %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%', 'wsal-bbpress' ), 'bbpress', 'modified' ),
+			array( 8013, WSAL_HIGH, __( 'User changed the forum setting posting throttle time', 'wsal-bbpress' ), __( 'Changed the time of the bbPress setting <strong>Flooding</strong> (throttling users setting) %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%', 'wsal-bbpress' ), 'bbpress', 'modified' ),
 		),
 
 		__( 'bbPress User Profiles', 'wsal-bbpress' ) => array(
-			array( 8023, WSAL_LOW, __( 'The forum role of a user was changed by another WordPress user', 'wsal-bbpress' ), __( 'Change the forum role of user %TargetUsername% %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole% %LineBreak% First name: %FirstName% %LineBreak% Last name: %LastName% %LineBreak% %EditUserLink%', 'wsal-bbpress' ), 'user', 'modified' ),
+			array( 8023, WSAL_LOW, __( 'The forum role of a user was changed by another WordPress user', 'wsal-bbpress' ), __( 'Change the role of user %TargetUsername% %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole% %LineBreak% First name: %FirstName% %LineBreak% Last name: %LastName% %LineBreak% %EditUserLink%', 'wsal-bbpress' ), 'user', 'modified' ),
 		),
 	),
 );
