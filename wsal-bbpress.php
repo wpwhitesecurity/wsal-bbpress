@@ -72,14 +72,14 @@ function wsal_bbpress_add_custom_meta_format( $value, $name ) {
 	$check_value = (string) $value;
   if ( '%EditorLinkForum%' === $name ) {
 		if ( 'NULL' !== $check_value ) {
-			return '<a target="_blank" href="' . esc_url( $value ) . '">' . __( 'View the Forum in editor', 'wsal-bbpress' ) . '</a>';
+			return '<a target="_blank" href="' . esc_url( $value ) . '">' . __( 'View the forum in editor', 'wsal-bbpress' ) . '</a>';
 		} else {
 			return '';
 		}
 	}
   if ( '%EditorLinkTopic%' === $name ) {
 		if ( 'NULL' !== $check_value ) {
-			  return '<a target="_blank" href="' . esc_url( $value ) . '">' . __( 'View the Topic in editor', 'wsal-bbpress' ) . '</a>';
+			  return '<a target="_blank" href="' . esc_url( $value ) . '">' . __( 'View the topic in editor', 'wsal-bbpress' ) . '</a>';
 		} else {
 			return '';
 		}
