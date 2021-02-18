@@ -40,7 +40,7 @@ $core_settings = array(
 	'custom_alert_path' => trailingslashit( dirname( __FILE__ ) ) . 'wp-security-audit-log',
 	'custom_sensor_path' => trailingslashit( trailingslashit( dirname( __FILE__ ) ) . 'wp-security-audit-log' . DIRECTORY_SEPARATOR . 'custom-sensors' ),
 );
-$wsal_extension = new \WPWhiteSecurity\ActivityLog\Extensions\Common\Core( $core_settings );
+$wsal_extension = new \WPWhiteSecurity\ActivityLog\Extensions\Common\Core( __FILE__, 'wsal-bbpress' );
 
 /**
  * Adds new custom event objects for our plugin
