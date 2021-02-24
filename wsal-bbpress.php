@@ -88,5 +88,4 @@ function wsal_bbpress_add_custom_meta_format( $value, $name ) {
 }
 
 add_filter( 'wsal_event_objects', 'wsal_bbpress_add_custom_event_objects', 10, 2 );
-add_filter( 'wsal_link_filter', 'wsal_bbpress_add_custom_meta_format', 10, 2 );
 add_filter( 'wsal_meta_formatter_custom_formatter', 'wsal_bbpress_add_custom_meta_format', 10, 2 );
