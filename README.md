@@ -1,5 +1,4 @@
 
-
 # WP Activity Log for bbPress
 
 Contributors: WPWhiteSecurity
