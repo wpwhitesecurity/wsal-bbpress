@@ -9,7 +9,7 @@ $custom_alerts = [
                 __( 'User created new forum', 'wsal-bbpress' ),
                 __( 'New forum called %ForumName%', 'wsal-bbpress' ),
                 [],
-                [ '%EditorLinkForum%' ],
+                [ __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%' ],
                 'bbpress-forum',
                 'created',
             ],
@@ -23,7 +23,7 @@ $custom_alerts = [
                     __( 'New status', 'wsal-bbpress' ) => '%NewStatus%',
                 ],
                 [
-                    '%EditorLinkForum%',
+                    __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -38,7 +38,7 @@ $custom_alerts = [
                     __( 'New visibility', 'wsal-bbpress' ) => '%NewVisibility%',
                 ],
                 [
-                    '%EditorLinkForum%',
+                    __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -53,7 +53,7 @@ $custom_alerts = [
                     __( 'New URL', 'wsal-bbpress' )      => '%NewUrl%',
                 ],
                 [
-                    '%EditorLinkForum%',
+                    __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -68,7 +68,7 @@ $custom_alerts = [
                     __( 'New sorting order', 'wsal-bbpress' ) => '%NewOrder%',
                 ],
                 [
-                    '%EditorLinkForum%',
+                    __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -113,7 +113,7 @@ $custom_alerts = [
                     __( 'New parent', 'wsal-bbpress' ) => '%NewParent%',
                 ],
                 [
-                    '%EditorLinkForum%',
+                    __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -125,10 +125,10 @@ $custom_alerts = [
                 __( 'Changed the type of the forum %ForumName%', 'wsal-bbpress' ),
                 [
                     __( 'Previous type', 'wsal-bbpress' ) => '%OldType%',
-                    __( 'New type', 'wsal-bbpress' ) => '%NewType%',
+                    __( 'New type', 'wsal-bbpress' )      => '%NewType%',
                 ],
                 [
-                    '%EditorLinkForum%',
+                    __( 'View the forum in editor', 'wsal-bbpress' ) => '%EditorLinkForum%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -143,7 +143,7 @@ $custom_alerts = [
                 __( 'New topic called %TopicName%', 'wsal-bbpress' ),
                 [],
                 [
-                    '%EditorLinkTopic%',
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
                 ],
                 'bbpress-forum',
                 'created',
@@ -158,7 +158,7 @@ $custom_alerts = [
                     __( 'New status', 'wsal-bbpress' ) => '%NewStatus%',
                 ],
                 [
-                    '%EditorLinkTopic%',
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -170,10 +170,10 @@ $custom_alerts = [
                 __( 'Changed the type of the topic %TopicName%', 'wsal-bbpress' ),
                 [
                     __( 'Previous type', 'wsal-bbpress' ) => '%OldType%',
-                    __( 'New type', 'wsal-bbpress' ) => '%NewType%',
+                    __( 'New type', 'wsal-bbpress' )      => '%NewType%',
                 ],
                 [
-                    '%EditorLinkTopic%',
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -188,7 +188,7 @@ $custom_alerts = [
                     __( 'New URL', 'wsal-bbpress' )      => '%NewUrl%',
                 ],
                 [
-                    '%EditorLinkTopic%',
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -200,10 +200,10 @@ $custom_alerts = [
                 __( 'Changed the forum of the topic %TopicName%', 'wsal-bbpress' ),
                 [
                     __( 'Previous forum', 'wsal-bbpress' ) => '%OldForum%',
-                    __( 'New forum', 'wsal-bbpress' ) => '%NewForum%',
+                    __( 'New forum', 'wsal-bbpress' )      => '%NewForum%',
                 ],
                 [
-                    '%EditorLinkTopic%',
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -248,7 +248,7 @@ $custom_alerts = [
                     __( 'New visibility', 'wsal-bbpress' ) => '%NewVisibility%',
                 ],
                 [
-                    '%EditorLinkTopic%',
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
                 ],
                 'bbpress-forum',
                 'modified',
@@ -263,7 +263,7 @@ $custom_alerts = [
                 __( 'Changed the bbPress setting <strong>Automatically give registered users a forum role</strong>', 'wsal-bbpress' ),
                 [
                     __( 'Previous role', 'wsal-bbpress' ) => '%OldRole%',
-                    __( 'New role', 'wsal-bbpress' ) => '%NewRole%',
+                    __( 'New role', 'wsal-bbpress' )      => '%NewRole%',
                 ],
                 [],
                 'bbpress',
@@ -286,7 +286,7 @@ $custom_alerts = [
                 __( 'Changed the time of the bbPress setting <strong>Editing</strong>E (to allow users to edit their content after posting)', 'wsal-bbpress' ),
                 [
                     __( 'Previous time', 'wsal-bbpress' ) => '%OldTime%',
-                    __( 'New time', 'wsal-bbpress' ) => '%NewTime%',
+                    __( 'New time', 'wsal-bbpress' )      => '%NewTime%',
                 ],
                 [],
                 'bbpress',
@@ -299,7 +299,7 @@ $custom_alerts = [
                 __( 'Changed the time of the bbPress setting <strong>Flooding</strong> (throttling users setting)', 'wsal-bbpress' ),
                 [
                     __( 'Previous time', 'wsal-bbpress' ) => '%OldTime%',
-                    __( 'New time', 'wsal-bbpress' ) => '%NewTime%',
+                    __( 'New time', 'wsal-bbpress' )      => '%NewTime%',
                 ],
                 [],
                 'bbpress',
@@ -315,8 +315,8 @@ $custom_alerts = [
                 __( 'Change the role of user %TargetUsername%', 'wsal-bbpress' ),
                 [
                     __( 'Previous role', 'wsal-bbpress' ) => '%OldRole%',
-                    __( 'New role', 'wsal-bbpress' )   => '%NewRole%',
-                    __( 'First name', 'wsal-bbpress' ) => '%FirstName%',
+                    __( 'New role', 'wsal-bbpress' )      => '%NewRole%',
+                    __( 'First name', 'wsal-bbpress' )    => '%FirstName%',
                 ],
                 [
                     '%EditUserLink%',
