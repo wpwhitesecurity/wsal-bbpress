@@ -19,8 +19,8 @@ $custom_alerts = [
                 __( 'User changed status of a forum', 'wsal-bbpress' ),
                 __( 'Changed the status of the forum %ForumName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous status: ', 'wsal-bbpress' ) => '%OldStatus%',
-                    __( 'New status: ', 'wsal-bbpress' ) => '%NewStatus%',
+                    __( 'Previous status', 'wsal-bbpress' ) => '%OldStatus%',
+                    __( 'New status', 'wsal-bbpress' ) => '%NewStatus%',
                 ],
                 [
                     '%EditorLinkForum%',
@@ -34,8 +34,8 @@ $custom_alerts = [
                 __( 'User changed visibility of a forum', 'wsal-bbpress' ),
                 __( 'Changed the visibility of the forum %ForumName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous visibility: ', 'wsal-bbpress' ) => '%OldVisibility%',
-                    __( 'New visibility: ', 'wsal-bbpress' ) => '%NewVisibility%',
+                    __( 'Previous visibility', 'wsal-bbpress' ) => '%OldVisibility%',
+                    __( 'New visibility', 'wsal-bbpress' ) => '%NewVisibility%',
                 ],
                 [
                     '%EditorLinkForum%',
@@ -49,8 +49,8 @@ $custom_alerts = [
                 __( 'User changed the URL of a forum', 'wsal-bbpress' ),
                 __( 'Changed the URL of the forum %ForumName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous URL: ', 'wsal-bbpress' ) => '%OldUrl%',
-                    __( 'New URL: ', 'wsal-bbpress' )      => '%NewUrl%',
+                    __( 'Previous URL', 'wsal-bbpress' ) => '%OldUrl%',
+                    __( 'New URL', 'wsal-bbpress' )      => '%NewUrl%',
                 ],
                 [
                     '%EditorLinkForum%',
@@ -64,8 +64,8 @@ $custom_alerts = [
                 __( 'User changed order of a forum', 'wsal-bbpress' ),
                 __( 'Changed the sorting order of the forum %ForumName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous sorting order: ', 'wsal-bbpress' ) => '%OldOrder%',
-                    __( 'New sorting order: ', 'wsal-bbpress' ) => '%NewOrder%',
+                    __( 'Previous sorting order', 'wsal-bbpress' ) => '%OldOrder%',
+                    __( 'New sorting order', 'wsal-bbpress' ) => '%NewOrder%',
                 ],
                 [
                     '%EditorLinkForum%',
@@ -109,8 +109,8 @@ $custom_alerts = [
                 __( 'User changed the parent of a forum', 'wsal-bbpress' ),
                 __( 'Changed the parent of the forum %ForumName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous parent: ', 'wsal-bbpress' ) => '%OldParent%',
-                    __( 'New parent: ', 'wsal-bbpress' ) => '%NewParent%',
+                    __( 'Previous parent', 'wsal-bbpress' ) => '%OldParent%',
+                    __( 'New parent', 'wsal-bbpress' ) => '%NewParent%',
                 ],
                 [
                     '%EditorLinkForum%',
@@ -124,8 +124,8 @@ $custom_alerts = [
                 __( 'User changed type of a forum', 'wsal-bbpress' ),
                 __( 'Changed the type of the forum %ForumName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous type: ', 'wsal-bbpress' ) => '%OldType%',
-                    __( 'New type: ', 'wsal-bbpress' ) => '%NewType%',
+                    __( 'Previous type', 'wsal-bbpress' ) => '%OldType%',
+                    __( 'New type', 'wsal-bbpress' ) => '%NewType%',
                 ],
                 [
                     '%EditorLinkForum%',
@@ -154,8 +154,8 @@ $custom_alerts = [
                 __( 'User changed status of a topic', 'wsal-bbpress' ),
                 __( 'Changed the status of the topic %TopicName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous status: ', 'wsal-bbpress' ) => '%OldStatus%',
-                    __( 'New status: ', 'wsal-bbpress' ) => '%NewStatus%',
+                    __( 'Previous status', 'wsal-bbpress' ) => '%OldStatus%',
+                    __( 'New status', 'wsal-bbpress' ) => '%NewStatus%',
                 ],
                 [
                     '%EditorLinkTopic%',
@@ -169,8 +169,8 @@ $custom_alerts = [
                 __( 'User changed type of a topic', 'wsal-bbpress' ),
                 __( 'Changed the type of the topic %TopicName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous type: ', 'wsal-bbpress' ) => '%OldType%',
-                    __( 'New type: ', 'wsal-bbpress' ) => '%NewType%',
+                    __( 'Previous type', 'wsal-bbpress' ) => '%OldType%',
+                    __( 'New type', 'wsal-bbpress' ) => '%NewType%',
                 ],
                 [
                     '%EditorLinkTopic%',
@@ -184,8 +184,8 @@ $custom_alerts = [
                 __( 'User changed URL of a topic', 'wsal-bbpress' ),
                 __( 'Changed the URL of the topic %TopicName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous URL: ', 'wsal-bbpress' ) => '%OldUrl%',
-                    __( 'New URL: ', 'wsal-bbpress' )      => '%NewUrl%',
+                    __( 'Previous URL', 'wsal-bbpress' ) => '%OldUrl%',
+                    __( 'New URL', 'wsal-bbpress' )      => '%NewUrl%',
                 ],
                 [
                     '%EditorLinkTopic%',
@@ -199,8 +199,8 @@ $custom_alerts = [
                 __( 'User changed the forum of a topic', 'wsal-bbpress' ),
                 __( 'Changed the forum of the topic %TopicName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous forum: ', 'wsal-bbpress' ) => '%OldForum%',
-                    __( 'New forum: ', 'wsal-bbpress' ) => '%NewForum%',
+                    __( 'Previous forum', 'wsal-bbpress' ) => '%OldForum%',
+                    __( 'New forum', 'wsal-bbpress' ) => '%NewForum%',
                 ],
                 [
                     '%EditorLinkTopic%',
@@ -244,8 +244,8 @@ $custom_alerts = [
                 __( 'User changed visibility of a topic', 'wsal-bbpress' ),
                 __( 'Changed the visibility of the topic %TopicName%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous visibility: ', 'wsal-bbpress' ) => '%OldVisibility%',
-                    __( 'New visibility: ', 'wsal-bbpress' ) => '%NewVisibility%',
+                    __( 'Previous visibility', 'wsal-bbpress' ) => '%OldVisibility%',
+                    __( 'New visibility', 'wsal-bbpress' ) => '%NewVisibility%',
                 ],
                 [
                     '%EditorLinkTopic%',
@@ -262,8 +262,8 @@ $custom_alerts = [
                 __( 'User changed forum\'s role', 'wsal-bbpress' ),
                 __( 'Changed the bbPress setting <strong>Automatically give registered users a forum role</strong>', 'wsal-bbpress' ),
                 [
-                    __( 'Previous role: ', 'wsal-bbpress' ) => '%OldRole%',
-                    __( 'New role: ', 'wsal-bbpress' ) => '%NewRole%',
+                    __( 'Previous role', 'wsal-bbpress' ) => '%OldRole%',
+                    __( 'New role', 'wsal-bbpress' ) => '%NewRole%',
                 ],
                 [],
                 'bbpress',
@@ -285,8 +285,8 @@ $custom_alerts = [
                 __( 'User changed time to disallow post editing', 'wsal-bbpress' ),
                 __( 'Changed the time of the bbPress setting <strong>Editing</strong>E (to allow users to edit their content after posting)', 'wsal-bbpress' ),
                 [
-                    __( 'Previous time: ', 'wsal-bbpress' ) => '%OldTime%',
-                    __( 'New time: ', 'wsal-bbpress' ) => '%NewTime%',
+                    __( 'Previous time', 'wsal-bbpress' ) => '%OldTime%',
+                    __( 'New time', 'wsal-bbpress' ) => '%NewTime%',
                 ],
                 [],
                 'bbpress',
@@ -298,8 +298,8 @@ $custom_alerts = [
                 __( 'User changed the forum setting posting throttle time', 'wsal-bbpress' ),
                 __( 'Changed the time of the bbPress setting <strong>Flooding</strong> (throttling users setting)', 'wsal-bbpress' ),
                 [
-                    __( 'Previous time: ', 'wsal-bbpress' ) => '%OldTime%',
-                    __( 'New time: ', 'wsal-bbpress' ) => '%NewTime%',
+                    __( 'Previous time', 'wsal-bbpress' ) => '%OldTime%',
+                    __( 'New time', 'wsal-bbpress' ) => '%NewTime%',
                 ],
                 [],
                 'bbpress',
@@ -314,9 +314,9 @@ $custom_alerts = [
                 __( 'The forum role of a user was changed by another WordPress user', 'wsal-bbpress' ),
                 __( 'Change the role of user %TargetUsername%', 'wsal-bbpress' ),
                 [
-                    __( 'Previous role: ', 'wsal-bbpress' ) => '%OldRole%',
-                    __( 'New role: ', 'wsal-bbpress' )   => '%NewRole%',
-                    __( 'First name: ', 'wsal-bbpress' ) => '%FirstName%',
+                    __( 'Previous role', 'wsal-bbpress' ) => '%OldRole%',
+                    __( 'New role', 'wsal-bbpress' )   => '%NewRole%',
+                    __( 'First name', 'wsal-bbpress' ) => '%FirstName%',
                 ],
                 [
                     '%EditUserLink%',
