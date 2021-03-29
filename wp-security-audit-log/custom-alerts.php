@@ -319,7 +319,7 @@ $custom_alerts = [
                     __( 'First name', 'wsal-bbpress' )    => '%FirstName%',
                 ],
                 [
-                    '%EditUserLink%',
+                    __( 'User profile page', 'wsal-bbpress' ) => '%EditUserLink%',
                 ],
                 'user',
                 'modified',
