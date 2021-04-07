@@ -73,7 +73,7 @@ if ( ! class_exists( '\WPWhiteSecurity\ActivityLog\Extensions\Common\PluginInsta
 				$result    = 'success';
 			}
 			// TODO: swap to a wp_send_json_success.
-			// TODO: use responses to determine if we succeded.
+			// TODO: use responses to determine if we succeeded.
 
 			wp_send_json( $result );
 		}
@@ -96,7 +96,7 @@ if ( ! class_exists( '\WPWhiteSecurity\ActivityLog\Extensions\Common\PluginInsta
 			}
 			// clear the cache so we're using fresh data.
 			wp_cache_flush();
-			$upgrader       = new Plugin_Upgrader();
+			$upgrader       = new \Plugin_Upgrader();
 			$install_result = $upgrader->install( $plugin_zip );
 			if ( ! $install_result || is_wp_error( $install_result ) ) {
 				if ( is_wp_error( $install_result ) ) {
