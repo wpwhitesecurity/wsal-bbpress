@@ -38,6 +38,11 @@
 require_once plugin_dir_path( __FILE__ ) . 'core/class-extension-core.php';
 $wsal_extension = new \WPWhiteSecurity\ActivityLog\Extensions\Common\Core( __FILE__, 'wsal-bbpress' );
 
+/*
+	Ensure custom events are always avaiable.
+ */
+add_filter( 'wsal_custom_alerts_dirs', array( $wsal_extension, 'add_custom_events_path' ) );
+
 /**
  * Adds new custom event objects for our plugin
  *
