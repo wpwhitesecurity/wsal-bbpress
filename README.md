@@ -7,8 +7,8 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: activity log for bbPress, WP Activity Log extension, activity logs
 Requires at least: 3.6
-Tested up to: 5.5.1
-Stable tag: 1.0.2
+Tested up to: 5.7.1
+Stable tag: 1.0.3
 Requires PHP: 5.6
 
 Keep a log of changes that happen in the bbPress plugin, forums and more!
@@ -66,28 +66,39 @@ Refer to the [activity logs event IDs for bbPress](Refer to the list of [activit
 1. Upload the `wsal-bbpress` folder to the `/wp-content/plugins/` folder on your website.
 1. Activate the WP Activity Log extension for bbPress plugin from the 'Plugins' menu in WordPress.
 
-#### Frequently Asked Questions
+== Frequently Asked Questions ==
 
 = Support and Documentation =
 Please refer to our [Support & Documentation pages](https://wpactivitylog.com/support/?utm_source=wordpress.org&utm_medium=referral&utm_campaign=WSAL&utm_content=plugin+repos+description) for all the technical information and support documentation on the WP Activity Log plugin.
 
-####  Screenshots
+== Screenshots ==
 
 1. The easiest way to install the extension is from within the WP Activity Log plugin.
 1. Forms, entries, notifications and other bbPress plugin changes reported in the WordPress activity log.
 
-####  Changelog
+== Changelog ==
 
+= 1.0.3 (2021-04-21) =
+
+Release notes: [Major update of all the activity log extensions](https://wpactivitylog.com/major-core-update-extensions/)
+
+* **Improvement**
+	* Events now use the latest event format used in [WP Activity Log](https://wpactivitylog.com).
+	* Updated the core to the latest improved core (better performance and more efficient).
+	* Extension can now be activated only at network level.
+	
+* Bug fix
+	* Fixed a broken backward compatability issue.
+	
 = 1.0.2 (2020-09-04) =
 
-**Improvement**
-	*Updated the code with the new core code.
+* **Improvement**
+	* Updated the code with the new core code.
 
 = 1.0.1 (2020-05-20) =
 
-**Main plugin rename update**
-	*[WP Security Audit Log has been renamed to WP Activity Log](https://wpactivitylog.com/wp-security-audit-log-renamed-wp-activity-log/).
+* **Main plugin rename update**
+	* [WP Security Audit Log has been renamed to WP Activity Log](https://wpactivitylog.com/wp-security-audit-log-renamed-wp-activity-log/).
 
 = 1.0.0 (2020-04-15) =
-
-	*Initial release.
+	* Initial release.
