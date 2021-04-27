@@ -1,17 +1,17 @@
-# Copyright (C) 2020 WP White Security
-# This file is distributed under the GPL2.
+# Copyright (C) 2021 WP White Security
+# This file is distributed under the same license as the WP Activity Log for bbPress plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Activity Log for bbPress 1.0.1\n"
+"Project-Id-Version: WP Activity Log for bbPress 1.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wsal-bbpress\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-09-03T13:45:43+00:00\n"
+"POT-Creation-Date: 2021-04-27T10:25:58+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0-alpha\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wsal-bbpress\n"
 
 #. Plugin Name of the plugin
@@ -42,222 +42,288 @@ msgstr ""
 msgid "Forums"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:6
+#: wp-security-audit-log/custom-alerts.php:9
 msgid "User created new forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:6
-msgid "New forum called %ForumName% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:10
+msgid "Created a new forum called %ForumName%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:7
+#: wp-security-audit-log/custom-alerts.php:12
+#: wp-security-audit-log/custom-alerts.php:25
+#: wp-security-audit-log/custom-alerts.php:39
+#: wp-security-audit-log/custom-alerts.php:54
+#: wp-security-audit-log/custom-alerts.php:68
+#: wp-security-audit-log/custom-alerts.php:112
+#: wp-security-audit-log/custom-alerts.php:126
+msgid "View the forum in editor"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:19
 msgid "User changed status of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:7
-msgid "Changed the status of the forum %ForumName% %LineBreak% Previous Status: %OldStatus% %LineBreak% New Status: %NewStatus% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:20
+msgid "Changed the status of the forum %ForumName% to %NewStatus%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:8
+#: wp-security-audit-log/custom-alerts.php:22
+#: wp-security-audit-log/custom-alerts.php:152
+msgid "Previous status"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:33
 msgid "User changed visibility of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:8
-msgid "Changed the visibility of the forum %ForumName% %LineBreak% Previous visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:34
+msgid "Changed the visibility of the forum %ForumName% to %NewVisibility%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:9
+#: wp-security-audit-log/custom-alerts.php:36
+#: wp-security-audit-log/custom-alerts.php:239
+msgid "Previous visibility"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:47
 msgid "User changed the URL of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:9
-msgid "Changed the URL of the forum %ForumName% %LineBreak% Previous URL: %OldUrl% %LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:48
+msgid "Changed the URL of the forum %ForumName%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:10
+#: wp-security-audit-log/custom-alerts.php:50
+#: wp-security-audit-log/custom-alerts.php:180
+msgid "Previous URL"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:51
+#: wp-security-audit-log/custom-alerts.php:181
+msgid "New URL"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:62
 msgid "User changed order of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:10
-msgid "Changed the sorting order of the forum %ForumName% %LineBreak% Previous sorting order: %OldOrder% %LineBreak% New sorting order: %NewOrder% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:63
+msgid "Changed the sorting order of the forum %ForumName% to %NewOrder%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:11
+#: wp-security-audit-log/custom-alerts.php:65
+msgid "Previous sorting order"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:76
 msgid "User moved forum to trash"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:11
-msgid "Moved the forum %ForumName% to trash"
+#: wp-security-audit-log/custom-alerts.php:77
+msgid "Moved the forum %ForumName% to trash."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:12
+#: wp-security-audit-log/custom-alerts.php:86
 msgid "User permanently deleted forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:12
-msgid "Permanently deleted the forum %ForumName%"
+#: wp-security-audit-log/custom-alerts.php:87
+msgid "Permanently deleted the forum %ForumName%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:13
+#: wp-security-audit-log/custom-alerts.php:96
 msgid "User restored forum from trash"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:13
-msgid "Restored the forum %ForumName% from trash"
+#: wp-security-audit-log/custom-alerts.php:97
+msgid "Restored the forum %ForumName% from trash."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:14
+#: wp-security-audit-log/custom-alerts.php:106
 msgid "User changed the parent of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:14
-msgid "Changed the parent of the forum %ForumName% %LineBreak% Previous parent: %OldParent% %LineBreak% New parent: %NewParent% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:107
+msgid "Changed the parent of the forum %ForumName% to %NewParent%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:15
+#: wp-security-audit-log/custom-alerts.php:109
+msgid "Previous parent"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:120
 msgid "User changed type of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:15
-msgid "Changed the type of the forum %ForumName% %LineBreak% Previous type: %OldType% %LineBreak% New type: %NewType% %LineBreak% %EditorLinkForum%"
+#: wp-security-audit-log/custom-alerts.php:121
+msgid "Changed the type of the forum %ForumName% to %NewType%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:18
+#: wp-security-audit-log/custom-alerts.php:123
+#: wp-security-audit-log/custom-alerts.php:166
+msgid "Previous type"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:133
 msgid "bbPress Forum Topics"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:19
+#: wp-security-audit-log/custom-alerts.php:137
 msgid "User created new topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:19
-msgid "New topic called %TopicName% %LineBreak% %EditorLinkTopic%"
+#: wp-security-audit-log/custom-alerts.php:138
+msgid "Created a new topic called %TopicName%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:20
+#: wp-security-audit-log/custom-alerts.php:141
+#: wp-security-audit-log/custom-alerts.php:155
+#: wp-security-audit-log/custom-alerts.php:169
+#: wp-security-audit-log/custom-alerts.php:184
+#: wp-security-audit-log/custom-alerts.php:198
+#: wp-security-audit-log/custom-alerts.php:242
+msgid "View the topic in editor"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:149
 msgid "User changed status of a topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:20
-msgid "Changed the status of the topic %TopicName% %LineBreak% Previous status: %OldStatus% %LineBreak% New status: %NewStatus% %LineBreak% %EditorLinkTopic%"
+#: wp-security-audit-log/custom-alerts.php:150
+msgid "Changed the status of the topic %TopicName% to %NewStatus%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:21
+#: wp-security-audit-log/custom-alerts.php:163
 msgid "User changed type of a topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:21
-msgid "Changed the type of the topic %TopicName% %LineBreak% Previous type: %OldType% %LineBreak% New type: %NewType% %LineBreak% %EditorLinkTopic%"
+#: wp-security-audit-log/custom-alerts.php:164
+msgid "Changed the type of the topic %TopicName% to %NewType%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:22
+#: wp-security-audit-log/custom-alerts.php:177
 msgid "User changed URL of a topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:22
-msgid "Changed the URL of the topic %TopicName% %LineBreak% Previous URL: %OldUrl% %LineBreak% New URL: %NewUrl% %LineBreak% %EditorLinkTopic%"
+#: wp-security-audit-log/custom-alerts.php:178
+msgid "Changed the URL of the topic %TopicName%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:23
+#: wp-security-audit-log/custom-alerts.php:192
 msgid "User changed the forum of a topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:23
-msgid "Changed the forum of the topic %TopicName% %LineBreak% Previous forum: %OldForum% %LineBreak% New forum: %NewForum% %LineBreak% %EditorLinkTopic%"
+#: wp-security-audit-log/custom-alerts.php:193
+msgid "Changed the forum of the topic %TopicName% to %NewForum%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:24
+#: wp-security-audit-log/custom-alerts.php:195
+msgid "Previous forum"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:206
 msgid "User moved topic to trash"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:24
-msgid "Moved the %TopicName% to trash"
+#: wp-security-audit-log/custom-alerts.php:207
+msgid "Moved the %TopicName% to trash."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:25
+#: wp-security-audit-log/custom-alerts.php:216
 msgid "User permanently deleted topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:25
-msgid "Permanently deleted the topic %TopicName%"
+#: wp-security-audit-log/custom-alerts.php:217
+msgid "Permanently deleted the topic %TopicName%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:26
+#: wp-security-audit-log/custom-alerts.php:226
 msgid "User restored topic from trash"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:26
-msgid "Restored the topic %TopicName% from trash"
+#: wp-security-audit-log/custom-alerts.php:227
+msgid "Restored the topic %TopicName% from trash."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:27
+#: wp-security-audit-log/custom-alerts.php:236
 msgid "User changed visibility of a topic"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:27
-msgid "Changed the visibility of the topic %TopicName% %LineBreak% Previous visibility: %OldVisibility% %LineBreak% New visibility: %NewVisibility% %LineBreak% %EditorLinkTopic%"
+#: wp-security-audit-log/custom-alerts.php:237
+msgid "Changed the visibility of the topic %TopicName% to %NewVisibility%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:30
+#: wp-security-audit-log/custom-alerts.php:249
 msgid "bbPress Settings"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:31
+#: wp-security-audit-log/custom-alerts.php:253
 msgid "User changed forum's role"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:31
-msgid "Changed the forum user's auto role %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole%"
+#: wp-security-audit-log/custom-alerts.php:254
+msgid "Changed the bbPress setting <strong>Automatically give registered users a forum role</strong> to %NewRole%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:32
+#: wp-security-audit-log/custom-alerts.php:256
+#: wp-security-audit-log/custom-alerts.php:305
+msgid "Previous role"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:265
 msgid "User changed option of a forum"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:32
-msgid "The option for anonymous posting on the forums"
+#: wp-security-audit-log/custom-alerts.php:266
+msgid "Changed the bbPress setting <strong>Anonymous</strong> (allow guest users to post on the forums)."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:33
+#: wp-security-audit-log/custom-alerts.php:275
 msgid "User changed time to disallow post editing"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:33
-msgid "Changed the time to disallow post editing in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%"
+#: wp-security-audit-log/custom-alerts.php:276
+msgid "Changed the time of the bbPress setting <strong>Editing</strong> (to allow users to edit their content after posting) to %NewTime%,"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:34
+#: wp-security-audit-log/custom-alerts.php:278
+#: wp-security-audit-log/custom-alerts.php:290
+msgid "Previous time"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:287
 msgid "User changed the forum setting posting throttle time"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:34
-msgid "Changed the posting throttle time in the forums %LineBreak% Previous time: %OldTime% %LineBreak% New time: %NewTime%"
+#: wp-security-audit-log/custom-alerts.php:288
+msgid "Changed the time of the bbPress setting <strong>Flooding</strong> (throttling users setting) to %NewTime%."
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:37
+#: wp-security-audit-log/custom-alerts.php:298
 msgid "bbPress User Profiles"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:38
+#: wp-security-audit-log/custom-alerts.php:302
 msgid "The forum role of a user was changed by another WordPress user"
 msgstr ""
 
-#: wp-security-audit-log/custom-alerts.php:38
-msgid "Change the forum role of user %TargetUsername% %LineBreak% Previous role: %OldRole% %LineBreak% New role: %NewRole% %LineBreak% First name: %FirstName% %LineBreak% Last name: %LastName% %LineBreak% %EditUserLink%"
+#: wp-security-audit-log/custom-alerts.php:303
+msgid "Changed the role of user %TargetUsername% to %NewRole%."
 msgstr ""
 
-#: wsal-bbpress.php:55
+#: wp-security-audit-log/custom-alerts.php:306
+msgid "First name"
+msgstr ""
+
+#: wp-security-audit-log/custom-alerts.php:309
+msgid "User profile page"
+msgstr ""
+
+#: wsal-bbpress.php:51
 msgid "BBPress"
 msgstr ""
 
-#: wsal-bbpress.php:56
+#: wsal-bbpress.php:52
 msgid "BBPress Forum"
-msgstr ""
-
-#: wsal-bbpress.php:75
-msgid "View the Forum in editor"
-msgstr ""
-
-#: wsal-bbpress.php:82
-msgid "View the Topic in editor"
 msgstr ""
