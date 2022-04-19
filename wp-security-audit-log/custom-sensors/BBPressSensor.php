@@ -338,7 +338,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 					$post_id = $post->ID;
 				}
 				$bbp_sticky_topics = maybe_unserialize( get_post_meta( $post_id, '_bbp_sticky_topics', true ) );
-				$fn = $this->IsMultisite() ? 'get_site_option' : 'get_option';
+				$fn = $this->is_multisite() ? 'get_site_option' : 'get_option';
 				$bbp_super_sticky_topics = maybe_unserialize( $fn( '_bbp_super_sticky_topics' ) );
 				if ( ! empty( $bbp_sticky_topics ) && in_array( $post->ID, $bbp_sticky_topics ) ) {
 					$old_type = 'sticky';
@@ -569,7 +569,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 					}
 
 					$bbp_sticky_topics = maybe_unserialize( get_post_meta( $post_id, '_bbp_sticky_topics', true ) );
-					$fn = $this->IsMultisite() ? 'get_site_option' : 'get_option';
+					$fn = $this->is_multisite() ? 'get_site_option' : 'get_option';
 					$bbp_super_sticky_topics = maybe_unserialize( $fn( '_bbp_super_sticky_topics' ) );
 					if ( ! empty( $bbp_sticky_topics ) && in_array( $get_array['topic_id'], $bbp_sticky_topics ) ) {
 						$old_type = 'sticky';

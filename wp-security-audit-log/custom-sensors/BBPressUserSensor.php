@@ -133,7 +133,7 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 					'FirstName'      => $user->user_firstname,
 					'LastName'       => $user->user_lastname,
 					'EditUserLink'   => add_query_arg( 'user_id', $user_id, admin_url( 'user-edit.php' ) ),
-					'multisite_text' => $this->plugin->IsMultisite() ? get_current_blog_id() : false,
+					'multisite_text' => $this->plugin->is_multisite() ? get_current_blog_id() : false,
 				),
 				array( $this, 'MustNotContainUserChanges' )
 			);
@@ -195,7 +195,7 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 	 * Triggered when a user accesses the admin area.
 	 */
 	public function get_super_admins() {
-		$this->old_superadmins = $this->IsMultisite() ? get_super_admins() : null;
+		$this->old_superadmins = $this->is_multisite() ? get_super_admins() : null;
 	}
 
 	/**
