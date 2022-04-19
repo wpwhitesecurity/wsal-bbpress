@@ -244,6 +244,56 @@ $custom_alerts = [
                 'bbpress-forum',
                 'modified',
             ],
+            [
+                8024,
+                WSAL_LOW,
+                __( 'User created a topic tag', 'wsal-bbpress' ),
+                __( 'Created the topic tag %CategoryName%.', 'wsal-bbpress' ),
+                [
+                    __( 'Slug', 'wsal-bbpress' ) => '%slug%',
+                ],
+                [
+                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
+                ],
+                'bbpress-forum',
+                'created',
+            ],
+            [
+                8025,
+                WSAL_LOW,
+                __( 'User deleted a topic tag', 'wsal-bbpress' ),
+                __( 'Deleted the topic tag %CategoryName%.', 'wsal-bbpress' ),
+                [
+                    __( 'Slug', 'wsal-bbpress' ) => '%slug%',
+                ],
+                [],
+                'bbpress-forum',
+                'deleted',
+            ],
+            [
+                8026,
+                WSAL_LOW,
+                __( 'User renamed a topic tag', 'wsal-bbpress' ),
+                __( 'Renamed the topic tag %OldName% to %NewName%.', 'wsal-bbpress' ),
+                [
+                    __( 'Slug', 'wsal-bbpress' ) => '%slug%',
+                ],
+                [],
+                'bbpress-forum',
+                'Renamed',
+            ],
+            [
+                8027,
+                WSAL_LOW,
+                __( 'User changed a topic tag slug', 'wsal-bbpress' ),
+                __( 'Changed the slug of the topic tag %TagName% to %NewSlug%.', 'wsal-bbpress' ),
+                [
+                    __( 'Previous slug', 'wsal-bbpress' ) => '%slug%',
+                ],
+                [],
+                'bbpress-forum',
+                'Renamed',
+            ],
         ],
 
         __( 'bbPress Settings', 'wsal-bbpress' )      => [
