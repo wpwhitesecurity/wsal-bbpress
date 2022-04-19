@@ -1,4 +1,5 @@
-<?php
+<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase
+
 /**
  * Sensor: User Profile
  *
@@ -85,7 +86,7 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 					'UserChanger'    => $current_user->user_login,
 					'FirstName'      => $new_userdata->user_firstname,
 					'LastName'       => $new_userdata->user_lastname,
-					'EditUserLink'   => add_query_arg( 'user_id', $new_userdata->ID, admin_url( 'user-edit.php' ) )
+					'EditUserLink'   => add_query_arg( 'user_id', $new_userdata->ID, admin_url( 'user-edit.php' ) ),
 				)
 			);
 		}
@@ -108,14 +109,14 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 		}
 
 		// If BBPress plugin is active then check for user roles change.
-    // BBPress user roles.
-    $bbpress_roles = array( 'bbp_spectator', 'bbp_moderator', 'bbp_participant', 'bbp_keymaster', 'bbp_blocked' );
+		// BBPress user roles.
+		$bbpress_roles = array( 'bbp_spectator', 'bbp_moderator', 'bbp_participant', 'bbp_keymaster', 'bbp_blocked' );
 
-    // Set WP roles.
-    $old_roles = array_diff( $old_roles, $bbpress_roles );
-    $new_roles = array_diff( $user->roles, $bbpress_roles );
-    $old_roles = array_map( array( $this, 'filter_role_names' ), $old_roles );
-    $new_roles = array_map( array( $this, 'filter_role_names' ), $new_roles );
+		// Set WP roles.
+		$old_roles = array_diff( $old_roles, $bbpress_roles );
+		$new_roles = array_diff( $user->roles, $bbpress_roles );
+		$old_roles = array_map( array( $this, 'filter_role_names' ), $old_roles );
+		$new_roles = array_map( array( $this, 'filter_role_names' ), $new_roles );
 
 		// Get roles.
 		$old_roles = is_array( $old_roles ) ? implode( ', ', $old_roles ) : '';
