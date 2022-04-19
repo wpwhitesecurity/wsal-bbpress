@@ -60,9 +60,14 @@ function wsal_bbpress_add_custom_event_objects( $objects ) {
 
 /**
  * Add obsolete events to the togglealerts view.
+ *
+ * @param  array $obsolete_events = An array of currently obsolete events.
+ * @return array $obsolete_events - Appended array.
  */
 function wsal_bbpress_extension_togglealerts_obsolete_events( $obsolete_events ) {
-	$new_events      = [ 4013 ];
+	$new_events      = array(
+		4013,
+	);
 	$obsolete_events = array_merge( $obsolete_events, $new_events );
 	return $obsolete_events;
 }
