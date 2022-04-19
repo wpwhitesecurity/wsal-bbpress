@@ -1,6 +1,14 @@
 name: "WordPress Coding Standards review"
 
 on: workflow_dispatch
+    inputs:
+      access_token:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Personal access token'
+        # Default value if no value is explicitly provided
+        default: ''
+        # Input has to be provided for the workflow to run
+        required: true
 
 jobs:
   runPHPCSInspection:
@@ -13,5 +21,5 @@ jobs:
       - name: Run PHPCS inspection
         uses: rtCamp/action-phpcs-code-review@v2
         env:
-          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GH_BOT_TOKEN: ${{ github.event.inputs.access_token }}
           SKIP_FOLDERS: ".github,tests,vendor"
