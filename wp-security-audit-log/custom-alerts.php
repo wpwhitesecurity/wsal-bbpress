@@ -248,12 +248,12 @@ $custom_alerts = [
                 8024,
                 WSAL_LOW,
                 __( 'User created a topic tag', 'wsal-bbpress' ),
-                __( 'Created the topic tag %CategoryName%.', 'wsal-bbpress' ),
+                __( 'Created the topic tag %TagName%.', 'wsal-bbpress' ),
                 [
                     __( 'Slug', 'wsal-bbpress' ) => '%slug%',
                 ],
                 [
-                    __( 'View the topic in editor', 'wsal-bbpress' ) => '%EditorLinkTopic%',
+                    __( 'View the tag in editor', 'wsal-bbpress' ) => '%EditorLinkTag%',
                 ],
                 'bbpress-forum',
                 'created',
@@ -262,7 +262,7 @@ $custom_alerts = [
                 8025,
                 WSAL_LOW,
                 __( 'User deleted a topic tag', 'wsal-bbpress' ),
-                __( 'Deleted the topic tag %CategoryName%.', 'wsal-bbpress' ),
+                __( 'Deleted the topic tag %TagName%.', 'wsal-bbpress' ),
                 [
                     __( 'Slug', 'wsal-bbpress' ) => '%slug%',
                 ],
@@ -278,9 +278,11 @@ $custom_alerts = [
                 [
                     __( 'Slug', 'wsal-bbpress' ) => '%slug%',
                 ],
-                [],
+                [
+                    __( 'View the tag in editor', 'wsal-bbpress' ) => '%EditorLinkTag%',
+                ],
                 'bbpress-forum',
-                'Renamed',
+                'renamed',
             ],
             [
                 8027,
@@ -290,9 +292,11 @@ $custom_alerts = [
                 [
                     __( 'Previous slug', 'wsal-bbpress' ) => '%slug%',
                 ],
-                [],
+                [
+                    __( 'View the tag in editor', 'wsal-bbpress' ) => '%EditorLinkTag%',
+                ],
                 'bbpress-forum',
-                'Renamed',
+                'renamed',
             ],
         ],
 

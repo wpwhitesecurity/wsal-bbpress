@@ -58,7 +58,129 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 		add_action( 'post_updated', array( $this, 'CheckForumChange' ), 10, 3 );
 		add_action( 'delete_post', array( $this, 'EventForumDeleted' ), 10, 1 );
 		add_action( 'wp_trash_post', array( $this, 'EventForumTrashed' ), 10, 1 );
-		add_action( 'untrash_post', array( $this, 'EventForumUntrashed' ) );
+		add_action( 'untrash_post', array( $this, 'EventForumUntrashed' ) );        
+		add_action( 'create_term', array( $this, 'CheckTagsChange' ), 10, 3 );
+        add_action( 'delete_topic-tag', array( $this, 'event_topic_tag_deleted' ), 10, 4 );
+        add_action( 'wp_update_term_data', array( $this, 'event_topic_tag_updated' ), 10, 4 );
+	}
+
+    public function CheckTagsChange( $term_id, $tt_id, $taxonomy ) {
+        if ( 'topic-tag' === $taxonomy ) {
+            $term = get_term( $term_id );
+            $this->plugin->alerts->Trigger(
+                8024, array(
+                    'TagName'       => $term->name,
+                    'slug'          => $term->slug,
+                    'EditorLinkTag' => $this->get_taxonomy_edit_link( $term_id ),
+                )
+            );
+        }
+
+        return $term_id;
+    }
+
+    /**
+	 * Check Product Tag Deletion Event.
+	 *
+	 * @since 1.4.0
+	 *
+	 * @param int   $term_id      - Term ID.
+	 * @param int   $tt_id        - Term taxonomy ID.
+	 * @param mixed $deleted_term - Copy of the already-deleted term, in the form specified by the parent function. WP_Error otherwise.
+	 * @param array $object_ids   - List of term object IDs.
+	 */
+	public function event_topic_tag_deleted( $term_id, $tt_id, $deleted_term, $object_ids ) {
+		if ( 'topic-tag' === $deleted_term->taxonomy ) {
+			$this->plugin->alerts->Trigger(
+				8025,
+				array(
+					'TagName' => sanitize_text_field( $deleted_term->name ),
+					'slug'    => sanitize_text_field( $deleted_term->slug ),
+				)
+			);
+		}
+	}
+
+
+	/**
+	 * Check Product Category Updated Events.
+	 *
+	 * @since 3.3.1
+	 *
+	 * @param array  $data     - Term data to be updated.
+	 * @param int    $term_id  - Term ID.
+	 * @param string $taxonomy - Taxonomy slug.
+	 * @param array  $args     - Arguments passed to wp_update_term().
+	 */
+	public function event_topic_tag_updated( $data, $term_id, $taxonomy, $args ) {
+
+		if ( 'topic-tag' === $taxonomy ) {
+			// Get term data.
+			$new_name      = isset( $data['name'] ) ? $data['name'] : false;
+			$new_slug      = isset( $data['slug'] ) ? $data['slug'] : false;
+			$new_parent_id = isset( $args['parent'] ) ? $args['parent'] : false;
+
+			// New parent category.
+			$new_parent_cat = false;
+			if ( 0 !== $new_parent_id ) {
+				$new_parent_cat = get_term( $new_parent_id, $taxonomy );
+			}
+
+			// Get old data.
+			$term     = get_term( $term_id, $taxonomy );
+			$old_name = $term->name;
+			$old_slug = $term->slug;
+
+			// Old parent category.
+			$old_parent_cat = false;
+			if ( $term->parent ) {
+				$old_parent_cat = get_term( $term->parent, $taxonomy );
+			}
+
+			// Update if both names are not same.
+			if ( $old_name !== $new_name ) {
+				$this->plugin->alerts->Trigger(
+					8026,
+					array(
+						'OldName'       => sanitize_text_field( $old_name ),
+						'NewName'       => sanitize_text_field( $new_name ),
+						'slug'          => sanitize_text_field( $term->slug ),
+                        'EditorLinkTag' => $this->get_taxonomy_edit_link( $term_id ),
+					)
+				);
+			}
+
+			// Update if both slugs are not same.
+			if ( $old_slug !== $new_slug ) {
+				$this->plugin->alerts->Trigger(
+					8027,
+					array(
+						'TagName'       => sanitize_text_field( $new_name ),
+						'slug'          => sanitize_text_field( $old_slug ),
+						'NewSlug'       => sanitize_text_field( $new_slug ),
+                        'EditorLinkTag' => $this->get_taxonomy_edit_link( $term_id ),
+					)
+				);
+			}
+		}
+        
+		return $data;
+	}
+
+    /**
+	 * Builds category link.
+	 *
+	 * @param integer $tag_id   - Tag ID.
+	 * @param string  $taxonomy - Taxonomy.
+	 * @return string|null - Link.
+	 */
+	private function get_taxonomy_edit_link( $tag_id, $taxonomy = 'topic-tag' ) {
+		$tag_args = array(
+			'post_type' => 'topic',
+			'taxonomy'  => $taxonomy,
+			'tag_ID'    => $tag_id,
+		);
+		return ! empty( $tag_id ) ? add_query_arg( $tag_args, admin_url( 'term.php' ) ) : null;
 	}
 
 	/**
