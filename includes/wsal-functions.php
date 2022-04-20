@@ -3,7 +3,7 @@
  * Add our filters.
  *
  * @package Wsal
-*/
+ */
 
 add_filter( 'wsal_event_objects', 'wsal_bbpress_add_custom_event_objects', 10, 2 );
 add_filter( 'wsal_togglealerts_obsolete_events', 'wsal_bbpress_extension_togglealerts_obsolete_events' );
@@ -54,8 +54,8 @@ function wsal_bbpress_extension_togglealerts_obsolete_events( $obsolete_events )
 function wsal_bbpress_extension_add_custom_ignored_cpt( $post_types ) {
 	$new_post_types = array(
 		'forum',
-        'topic',
-        'reply',
+		'topic',
+		'reply',
 	);
 
 	// combine the two arrays.
