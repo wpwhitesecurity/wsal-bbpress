@@ -5,8 +5,8 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: activity log for bbPress, WP Activity Log extension, activity logs
 Requires at least: 4.5
-Tested up to: 5.6
-Stable tag: 1.0.3
+Tested up to: 5.8.3
+Stable tag: 1.0.4
 Requires PHP: 5.6
 
 Keep a log of changes that happen in the bbPress plugin, forums and more!
@@ -75,6 +75,19 @@ Please refer to our [Support & Documentation pages](https://wpactivitylog.com/su
 1. Forms, entries, notifications and other bbPress plugin changes reported in the WordPress activity log.
 
 == Changelog ==
+
+= 1.0.4 (2022-04-22) =
+
+* **Improvement**
+	* Added events 8024 > 8027, plugin now reports the creation, modification and deltion of Topic Tags.
+	* Update plugin translations to ensure all strings can be translated.
+	* Ensure plugin meets WPs Coding Standards.
+	
+* **Bug fixes**
+	* Updated function names inline with the release of WP Activity Log 4.4.1 to avoid PHP errors during certain actions.
+	* Fixed function error causing WP Activity Log users to be unable to activate this extension.
+	* Ensure BBpress post types are always ignored for standard WP Activity Log events.
+	* Ensure events 8013 and 8012 are reported only when a change is detected.
 
 = 1.0.3 (2021-04-28) =
 

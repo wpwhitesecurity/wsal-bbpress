@@ -1,4 +1,5 @@
-<?php
+<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase
+
 /**
  * Sensor: System Activity
  *
@@ -60,7 +61,7 @@ class WSAL_Sensors_BBPressSystemSensor extends WSAL_AbstractSensor {
 		if ( isset( $post_array['action'] ) && 'update' === $post_array['action'] && isset( $post_array['_bbp_default_role'] ) ) {
 			$old_role = get_option( '_bbp_default_role' );
 			$new_role = $post_array['_bbp_default_role'];
-			if ( $old_role != $new_role ) {
+			if ( $old_role !== $new_role ) {
 				$this->plugin->alerts->Trigger(
 					8009,
 					array(
@@ -86,9 +87,9 @@ class WSAL_Sensors_BBPressSystemSensor extends WSAL_AbstractSensor {
 
 			// Disallow editing after.
 			$bbp_edit_lock = get_option( '_bbp_edit_lock' );
-			$old_time      = ! empty( $bbp_edit_lock ) ? $bbp_edit_lock : '';
-			$new_time      = ! empty( $post_array['_bbp_edit_lock'] ) ? $post_array['_bbp_edit_lock'] : '';
-			if ( $old_time != $new_time ) {
+			$old_time      = ! empty( $bbp_edit_lock ) ? intval( $bbp_edit_lock ) : '';
+			$new_time      = ! empty( $post_array['_bbp_edit_lock'] ) ? intval( $post_array['_bbp_edit_lock'] ) : '';
+			if ( $old_time !== $new_time ) {
 				$this->plugin->alerts->Trigger(
 					8012,
 					array(
@@ -100,9 +101,9 @@ class WSAL_Sensors_BBPressSystemSensor extends WSAL_AbstractSensor {
 
 			// Throttle posting every.
 			$bbp_throttle_time = get_option( '_bbp_throttle_time' );
-			$old_time2         = ! empty( $bbp_throttle_time ) ? $bbp_throttle_time : '';
-			$new_time2         = ! empty( $post_array['_bbp_throttle_time'] ) ? $post_array['_bbp_throttle_time'] : '';
-			if ( $old_time2 != $new_time2 ) {
+			$old_time2         = ! empty( $bbp_throttle_time ) ? intval( $bbp_throttle_time ) : '';
+			$new_time2         = ! empty( $post_array['_bbp_throttle_time'] ) ? intval( $post_array['_bbp_throttle_time'] ) : '';
+			if ( $old_time2 !== $new_time2 ) {
 				$this->plugin->alerts->Trigger(
 					8013,
 					array(

@@ -1,4 +1,5 @@
-<?php
+<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase
+
 /**
  * Sensor: User Profile
  *
@@ -85,7 +86,7 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 					'UserChanger'    => $current_user->user_login,
 					'FirstName'      => $new_userdata->user_firstname,
 					'LastName'       => $new_userdata->user_lastname,
-					'EditUserLink'   => add_query_arg( 'user_id', $new_userdata->ID, admin_url( 'user-edit.php' ) )
+					'EditUserLink'   => add_query_arg( 'user_id', $new_userdata->ID, admin_url( 'user-edit.php' ) ),
 				)
 			);
 		}
@@ -108,14 +109,14 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 		}
 
 		// If BBPress plugin is active then check for user roles change.
-    // BBPress user roles.
-    $bbpress_roles = array( 'bbp_spectator', 'bbp_moderator', 'bbp_participant', 'bbp_keymaster', 'bbp_blocked' );
+		// BBPress user roles.
+		$bbpress_roles = array( 'bbp_spectator', 'bbp_moderator', 'bbp_participant', 'bbp_keymaster', 'bbp_blocked' );
 
-    // Set WP roles.
-    $old_roles = array_diff( $old_roles, $bbpress_roles );
-    $new_roles = array_diff( $user->roles, $bbpress_roles );
-    $old_roles = array_map( array( $this, 'filter_role_names' ), $old_roles );
-    $new_roles = array_map( array( $this, 'filter_role_names' ), $new_roles );
+		// Set WP roles.
+		$old_roles = array_diff( $old_roles, $bbpress_roles );
+		$new_roles = array_diff( $user->roles, $bbpress_roles );
+		$old_roles = array_map( array( $this, 'filter_role_names' ), $old_roles );
+		$new_roles = array_map( array( $this, 'filter_role_names' ), $new_roles );
 
 		// Get roles.
 		$old_roles = is_array( $old_roles ) ? implode( ', ', $old_roles ) : '';
@@ -133,7 +134,7 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 					'FirstName'      => $user->user_firstname,
 					'LastName'       => $user->user_lastname,
 					'EditUserLink'   => add_query_arg( 'user_id', $user_id, admin_url( 'user-edit.php' ) ),
-					'multisite_text' => $this->plugin->IsMultisite() ? get_current_blog_id() : false,
+					'multisite_text' => $this->plugin->is_multisite() ? get_current_blog_id() : false,
 				),
 				array( $this, 'MustNotContainUserChanges' )
 			);
@@ -195,7 +196,7 @@ class WSAL_Sensors_BBPressUserSensor extends WSAL_AbstractSensor {
 	 * Triggered when a user accesses the admin area.
 	 */
 	public function get_super_admins() {
-		$this->old_superadmins = $this->IsMultisite() ? get_super_admins() : null;
+		$this->old_superadmins = $this->is_multisite() ? get_super_admins() : null;
 	}
 
 	/**

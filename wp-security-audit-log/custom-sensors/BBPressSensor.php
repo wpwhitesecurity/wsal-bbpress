@@ -1,4 +1,5 @@
-<?php
+<?php // phpcs:disable WordPress.Files.FileName.NotHyphenatedLowercase
+
 /**
  * Sensor: BBPress
  *
@@ -46,7 +47,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 	 *
 	 * @var string
 	 */
-	protected $_OldLink = null;
+	protected $oldlink = null;
 
 	/**
 	 * Listening to events using WP hooks.
@@ -59,6 +60,137 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 		add_action( 'delete_post', array( $this, 'EventForumDeleted' ), 10, 1 );
 		add_action( 'wp_trash_post', array( $this, 'EventForumTrashed' ), 10, 1 );
 		add_action( 'untrash_post', array( $this, 'EventForumUntrashed' ) );
+		add_action( 'create_term', array( $this, 'CheckTagsChange' ), 10, 3 );
+		add_action( 'delete_topic-tag', array( $this, 'event_topic_tag_deleted' ), 10, 4 );
+		add_action( 'wp_update_term_data', array( $this, 'event_topic_tag_updated' ), 10, 4 );
+	}
+
+	/**
+	 * Check for newly created topic tags.
+	 *
+	 * @param int    $term_id - New term id.
+	 * @param int    $tt_id - New taxonomy id.
+	 * @param string $taxonomy - Taxonomy type.
+	 * @return int - Term id.
+	 */
+	public function CheckTagsChange( $term_id, $tt_id, $taxonomy ) {
+		if ( 'topic-tag' === $taxonomy ) {
+			$term = get_term( $term_id );
+			$this->plugin->alerts->Trigger(
+				8024,
+				array(
+					'TagName'       => $term->name,
+					'slug'          => $term->slug,
+					'EditorLinkTag' => $this->get_taxonomy_edit_link( $term_id ),
+				)
+			);
+		}
+
+		return $term_id;
+	}
+
+	/**
+	 * Check Product Tag Deletion Event.
+	 *
+	 * @since 1.4.0
+	 *
+	 * @param int   $term_id      - Term ID.
+	 * @param int   $tt_id        - Term taxonomy ID.
+	 * @param mixed $deleted_term - Copy of the already-deleted term, in the form specified by the parent function. WP_Error otherwise.
+	 * @param array $object_ids   - List of term object IDs.
+	 */
+	public function event_topic_tag_deleted( $term_id, $tt_id, $deleted_term, $object_ids ) {
+		if ( 'topic-tag' === $deleted_term->taxonomy ) {
+			$this->plugin->alerts->Trigger(
+				8025,
+				array(
+					'TagName' => sanitize_text_field( $deleted_term->name ),
+					'slug'    => sanitize_text_field( $deleted_term->slug ),
+				)
+			);
+		}
+	}
+
+
+	/**
+	 * Check Product Category Updated Events.
+	 *
+	 * @since 3.3.1
+	 *
+	 * @param array  $data     - Term data to be updated.
+	 * @param int    $term_id  - Term ID.
+	 * @param string $taxonomy - Taxonomy slug.
+	 * @param array  $args     - Arguments passed to wp_update_term().
+	 */
+	public function event_topic_tag_updated( $data, $term_id, $taxonomy, $args ) {
+
+		if ( 'topic-tag' === $taxonomy ) {
+			// Get term data.
+			$new_name      = isset( $data['name'] ) ? $data['name'] : false;
+			$new_slug      = isset( $data['slug'] ) ? $data['slug'] : false;
+			$new_parent_id = isset( $args['parent'] ) ? $args['parent'] : false;
+
+			// New parent category.
+			$new_parent_cat = false;
+			if ( 0 !== $new_parent_id ) {
+				$new_parent_cat = get_term( $new_parent_id, $taxonomy );
+			}
+
+			// Get old data.
+			$term     = get_term( $term_id, $taxonomy );
+			$old_name = $term->name;
+			$old_slug = $term->slug;
+
+			// Old parent category.
+			$old_parent_cat = false;
+			if ( $term->parent ) {
+				$old_parent_cat = get_term( $term->parent, $taxonomy );
+			}
+
+			// Update if both names are not same.
+			if ( $old_name !== $new_name ) {
+				$this->plugin->alerts->Trigger(
+					8026,
+					array(
+						'OldName'       => sanitize_text_field( $old_name ),
+						'NewName'       => sanitize_text_field( $new_name ),
+						'slug'          => sanitize_text_field( $term->slug ),
+						'EditorLinkTag' => $this->get_taxonomy_edit_link( $term_id ),
+					)
+				);
+			}
+
+			// Update if both slugs are not same.
+			if ( $old_slug !== $new_slug ) {
+				$this->plugin->alerts->Trigger(
+					8027,
+					array(
+						'TagName'       => sanitize_text_field( $new_name ),
+						'slug'          => sanitize_text_field( $old_slug ),
+						'NewSlug'       => sanitize_text_field( $new_slug ),
+						'EditorLinkTag' => $this->get_taxonomy_edit_link( $term_id ),
+					)
+				);
+			}
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Builds category link.
+	 *
+	 * @param integer $tag_id   - Tag ID.
+	 * @param string  $taxonomy - Taxonomy.
+	 * @return string|null - Link.
+	 */
+	private function get_taxonomy_edit_link( $tag_id, $taxonomy = 'topic-tag' ) {
+		$tag_args = array(
+			'post_type' => 'topic',
+			'taxonomy'  => $taxonomy,
+			'tag_ID'    => $tag_id,
+		);
+		return ! empty( $tag_id ) ? add_query_arg( $tag_args, admin_url( 'term.php' ) ) : null;
 	}
 
 	/**
@@ -90,8 +222,8 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 			&& ! ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			&& ! ( isset( $post_array['action'] ) && 'autosave' === $post_array['action'] )
 		) {
-			$post_id = intval( $post_array['post_ID'] );
-			$this->_OldLink = get_permalink( $post_id );
+			$post_id       = intval( $post_array['post_ID'] );
+			$this->oldlink = get_permalink( $post_id );
 		}
 	}
 
@@ -216,18 +348,20 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				switch ( $old_post->post_type ) {
 					case 'forum':
 						$this->plugin->alerts->Trigger(
-							8000, array(
-								'ForumName' => $new_post->post_title,
-								'ForumURL' => get_permalink( $new_post->ID ),
+							8000,
+							array(
+								'ForumName'          => $new_post->post_title,
+								'ForumURL'           => get_permalink( $new_post->ID ),
 								$editor_link['name'] => $editor_link['value'],
 							)
 						);
 						break;
 					case 'topic':
 						$this->plugin->alerts->Trigger(
-							8014, array(
-								'TopicName' => $new_post->post_title,
-								'TopicURL' => get_permalink( $new_post->ID ),
+							8014,
+							array(
+								'TopicName'          => $new_post->post_title,
+								'TopicURL'           => get_permalink( $new_post->ID ),
 								$editor_link['name'] => $editor_link['value'],
 							)
 						);
@@ -255,7 +389,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 			return false;
 		}
 
-		$result = 0;
+		$result      = 0;
 		$editor_link = $this->GetEditorLink( $post );
 		switch ( $post->post_type ) {
 			case 'forum':
@@ -263,12 +397,13 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				$new_visibility = ! empty( $post_array['bbp_forum_visibility'] ) ? $post_array['bbp_forum_visibility'] : '';
 				$new_visibility = ( 'publish' === $new_visibility ) ? 'public' : $new_visibility;
 
-				if ( ! empty( $new_visibility ) && 'auto-draft' != $old_visibility && $old_visibility != $new_visibility ) {
+				if ( ! empty( $new_visibility ) && 'auto-draft' !== $old_visibility && $old_visibility !== $new_visibility ) {
 					$this->plugin->alerts->Trigger(
-						8002, array(
-							'ForumName' => $post->post_title,
-							'OldVisibility' => $old_visibility,
-							'NewVisibility' => $new_visibility,
+						8002,
+						array(
+							'ForumName'          => $post->post_title,
+							'OldVisibility'      => $old_visibility,
+							'NewVisibility'      => $new_visibility,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -280,12 +415,13 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				$new_visibility = ! empty( $post_array['visibility'] ) ? $post_array['visibility'] : '';
 				$new_visibility = ( 'password' === $new_visibility ) ? 'password protected' : $new_visibility;
 
-				if ( ! empty( $new_visibility ) && 'auto-draft' != $old_visibility && $old_visibility != $new_visibility ) {
+				if ( ! empty( $new_visibility ) && 'auto-draft' !== $old_visibility && $old_visibility !== $new_visibility ) {
 					$this->plugin->alerts->Trigger(
-						8022, array(
-							'TopicName' => $post->post_title,
-							'OldVisibility' => $old_visibility,
-							'NewVisibility' => $new_visibility,
+						8022,
+						array(
+							'TopicName'          => $post->post_title,
+							'OldVisibility'      => $old_visibility,
+							'NewVisibility'      => $new_visibility,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -312,19 +448,20 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 			return false;
 		}
 
-		$result = 0;
+		$result      = 0;
 		$editor_link = $this->GetEditorLink( $post );
 		switch ( $post->post_type ) {
 			case 'forum':
 				$bbp_forum_type = get_post_meta( $post->ID, '_bbp_forum_type', true );
-				$old_type = ! empty( $bbp_forum_type ) ? $bbp_forum_type : 'forum';
-				$new_type = ! empty( $post_array['bbp_forum_type'] ) ? $post_array['bbp_forum_type'] : '';
-				if ( ! empty( $new_type ) && $old_type != $new_type ) {
+				$old_type       = ! empty( $bbp_forum_type ) ? $bbp_forum_type : 'forum';
+				$new_type       = ! empty( $post_array['bbp_forum_type'] ) ? $post_array['bbp_forum_type'] : '';
+				if ( ! empty( $new_type ) && $old_type !== $new_type ) {
 					$this->plugin->alerts->Trigger(
-						8011, array(
-							'ForumName' => $post->post_title,
-							'OldType' => $old_type,
-							'NewType' => $new_type,
+						8011,
+						array(
+							'ForumName'          => $post->post_title,
+							'OldType'            => $old_type,
+							'NewType'            => $new_type,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -337,23 +474,24 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				} else {
 					$post_id = $post->ID;
 				}
-				$bbp_sticky_topics = maybe_unserialize( get_post_meta( $post_id, '_bbp_sticky_topics', true ) );
-				$fn = $this->IsMultisite() ? 'get_site_option' : 'get_option';
+				$bbp_sticky_topics       = maybe_unserialize( get_post_meta( $post_id, '_bbp_sticky_topics', true ) );
+				$fn                      = $this->is_multisite() ? 'get_site_option' : 'get_option';
 				$bbp_super_sticky_topics = maybe_unserialize( $fn( '_bbp_super_sticky_topics' ) );
-				if ( ! empty( $bbp_sticky_topics ) && in_array( $post->ID, $bbp_sticky_topics ) ) {
+				if ( ! empty( $bbp_sticky_topics ) && in_array( $post->ID, $bbp_sticky_topics, true ) ) {
 					$old_type = 'sticky';
-				} elseif ( ! empty( $bbp_super_sticky_topics ) && in_array( $post->ID, $bbp_super_sticky_topics ) ) {
+				} elseif ( ! empty( $bbp_super_sticky_topics ) && in_array( $post->ID, $bbp_super_sticky_topics, true ) ) {
 					$old_type = 'super';
 				} else {
 					$old_type = 'unstick';
 				}
 				$new_type = ! empty( $post_array['bbp_stick_topic'] ) ? $post_array['bbp_stick_topic'] : '';
-				if ( ! empty( $new_type ) && $old_type != $new_type ) {
+				if ( ! empty( $new_type ) && $old_type !== $new_type ) {
 					$this->plugin->alerts->Trigger(
-						8016, array(
-							'TopicName' => $post->post_title,
-							'OldType' => ( 'unstick' == $old_type ) ? 'normal' : (( 'super' == $old_type ) ? 'super sticky' : $old_type),
-							'NewType' => ( 'unstick' == $new_type ) ? 'normal' : (( 'super' == $new_type ) ? 'super sticky' : $new_type),
+						8016,
+						array(
+							'TopicName'          => $post->post_title,
+							'OldType'            => ( 'unstick' === $old_type ) ? 'normal' : ( ( 'super' === $old_type ) ? 'super sticky' : $old_type ),
+							'NewType'            => ( 'unstick' === $new_type ) ? 'normal' : ( ( 'super' === $new_type ) ? 'super sticky' : $new_type ),
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -373,7 +511,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 	private function EventForumChangedStatus( $post ) {
 		// Filter $_POST and $_GET array for security.
 		$post_array = filter_input_array( INPUT_POST );
-		$get_array = filter_input_array( INPUT_GET );
+		$get_array  = filter_input_array( INPUT_GET );
 
 		if ( isset( $post_array['post_ID'] )
 			&& isset( $post_array['_wpnonce'] )
@@ -381,7 +519,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 			return false;
 		}
 
-		$result = 0;
+		$result      = 0;
 		$editor_link = $this->GetEditorLink( $post );
 		switch ( $post->post_type ) {
 			case 'forum':
@@ -390,10 +528,11 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				$new_status = ! empty( $post_array['bbp_forum_status'] ) ? $post_array['bbp_forum_status'] : '';
 				if ( ! empty( $new_status ) && $old_status !== $new_status ) {
 					$this->plugin->alerts->Trigger(
-						8001, array(
-							'ForumName' => $post->post_title,
-							'OldStatus' => $old_status,
-							'NewStatus' => $new_status,
+						8001,
+						array(
+							'ForumName'          => $post->post_title,
+							'OldStatus'          => $old_status,
+							'NewStatus'          => $new_status,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -421,10 +560,11 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				}
 				if ( ! empty( $new_status ) && $old_status !== $new_status ) {
 					$this->plugin->alerts->Trigger(
-						8015, array(
-							'TopicName' => $post->post_title,
-							'OldStatus' => ( 'publish' === $old_status ) ? 'open' : $old_status,
-							'NewStatus' => ( 'publish' === $new_status ) ? 'open' : $new_status,
+						8015,
+						array(
+							'TopicName'          => $post->post_title,
+							'OldStatus'          => ( 'publish' === $old_status ) ? 'open' : $old_status,
+							'NewStatus'          => ( 'publish' === $new_status ) ? 'open' : $new_status,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -445,36 +585,39 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 	private function EventForumChanged( $old_post, $new_post ) {
 		$editor_link = $this->GetEditorLink( $new_post );
 		// Changed Order.
-		if ( $old_post->menu_order != $new_post->menu_order ) {
+		if ( $old_post->menu_order !== $new_post->menu_order ) {
 			$this->plugin->alerts->Trigger(
-				8004, array(
-					'ForumName' => $new_post->post_title,
-					'OldOrder' => $old_post->menu_order,
-					'NewOrder' => $new_post->menu_order,
+				8004,
+				array(
+					'ForumName'          => $new_post->post_title,
+					'OldOrder'           => $old_post->menu_order,
+					'NewOrder'           => $new_post->menu_order,
 					$editor_link['name'] => $editor_link['value'],
 				)
 			);
 			return 1;
 		}
 		// Changed Parent.
-		if ( $old_post->post_parent != $new_post->post_parent ) {
+		if ( $old_post->post_parent !== $new_post->post_parent ) {
 			switch ( $old_post->post_type ) {
 				case 'forum':
 					$this->plugin->alerts->Trigger(
-						8008, array(
-							'ForumName' => $new_post->post_title,
-							'OldParent' => $old_post->post_parent ? get_the_title( $old_post->post_parent ) : 'no parent',
-							'NewParent' => $new_post->post_parent ? get_the_title( $new_post->post_parent ) : 'no parent',
+						8008,
+						array(
+							'ForumName'          => $new_post->post_title,
+							'OldParent'          => $old_post->post_parent ? get_the_title( $old_post->post_parent ) : 'no parent',
+							'NewParent'          => $new_post->post_parent ? get_the_title( $new_post->post_parent ) : 'no parent',
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
 					break;
 				case 'topic':
 					$this->plugin->alerts->Trigger(
-						8018, array(
-							'TopicName' => $new_post->post_title,
-							'OldForum' => $old_post->post_parent ? get_the_title( $old_post->post_parent ) : 'no parent',
-							'NewForum' => $new_post->post_parent ? get_the_title( $new_post->post_parent ) : 'no parent',
+						8018,
+						array(
+							'TopicName'          => $new_post->post_title,
+							'OldForum'           => $old_post->post_parent ? get_the_title( $old_post->post_parent ) : 'no parent',
+							'NewForum'           => $new_post->post_parent ? get_the_title( $new_post->post_parent ) : 'no parent',
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -483,26 +626,28 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 			return 1;
 		}
 		// Changed URL.
-		$old_link = $this->_OldLink;
+		$old_link = $this->oldlink;
 		$new_link = get_permalink( $new_post->ID );
-		if ( ! empty( $old_link ) && $old_link != $new_link ) {
+		if ( ! empty( $old_link ) && $old_link !== $new_link ) {
 			switch ( $old_post->post_type ) {
 				case 'forum':
 					$this->plugin->alerts->Trigger(
-						8003, array(
-							'ForumName' => $new_post->post_title,
-							'OldUrl' => $old_link,
-							'NewUrl' => $new_link,
+						8003,
+						array(
+							'ForumName'          => $new_post->post_title,
+							'OldUrl'             => $old_link,
+							'NewUrl'             => $new_link,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
 					break;
 				case 'topic':
 					$this->plugin->alerts->Trigger(
-						8017, array(
-							'TopicName' => $new_post->post_title,
-							'OldUrl' => $old_link,
-							'NewUrl' => $new_link,
+						8017,
+						array(
+							'TopicName'          => $new_post->post_title,
+							'OldUrl'             => $old_link,
+							'NewUrl'             => $new_link,
 							$editor_link['name'] => $editor_link['value'],
 						)
 					);
@@ -522,9 +667,10 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 	private function EventForumByCode( $post, $event ) {
 		$editor_link = $this->GetEditorLink( $post );
 		$this->plugin->alerts->Trigger(
-			$event, array(
-				'ForumID' => $post->ID,
-				'ForumName' => $post->post_title,
+			$event,
+			array(
+				'ForumID'            => $post->ID,
+				'ForumName'          => $post->post_title,
 				$editor_link['name'] => $editor_link['value'],
 			)
 		);
@@ -539,9 +685,10 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 	private function EventTopicByCode( $post, $event ) {
 		$editor_link = $this->GetEditorLink( $post );
 		$this->plugin->alerts->Trigger(
-			$event, array(
-				'TopicID' => $post->ID,
-				'TopicName' => $post->post_title,
+			$event,
+			array(
+				'TopicID'            => $post->ID,
+				'TopicName'          => $post->post_title,
 				$editor_link['name'] => $editor_link['value'],
 			)
 		);
@@ -557,23 +704,23 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 		$get_array = filter_input_array( INPUT_GET );
 
 		if ( ! empty( $get_array['post_type'] ) && ! empty( $get_array['topic_id'] ) ) {
-			if ( 'topic' == $get_array['post_type'] ) {
+			if ( 'topic' === $get_array['post_type'] ) {
 				$post = get_post( $get_array['topic_id'] );
 
 				// Topic type.
-				if ( isset( $get_array['action'] ) && 'bbp_toggle_topic_stick' == $get_array['action'] ) {
+				if ( isset( $get_array['action'] ) && 'bbp_toggle_topic_stick' === $get_array['action'] ) {
 					if ( ! empty( $post->post_parent ) ) {
 						$post_id = $post->post_parent;
 					} else {
 						$post_id = $get_array['topic_id'];
 					}
 
-					$bbp_sticky_topics = maybe_unserialize( get_post_meta( $post_id, '_bbp_sticky_topics', true ) );
-					$fn = $this->IsMultisite() ? 'get_site_option' : 'get_option';
+					$bbp_sticky_topics       = maybe_unserialize( get_post_meta( $post_id, '_bbp_sticky_topics', true ) );
+					$fn                      = $this->is_multisite() ? 'get_site_option' : 'get_option';
 					$bbp_super_sticky_topics = maybe_unserialize( $fn( '_bbp_super_sticky_topics' ) );
-					if ( ! empty( $bbp_sticky_topics ) && in_array( $get_array['topic_id'], $bbp_sticky_topics ) ) {
+					if ( ! empty( $bbp_sticky_topics ) && in_array( $get_array['topic_id'], $bbp_sticky_topics, true ) ) {
 						$old_type = 'sticky';
-					} elseif ( ! empty( $bbp_super_sticky_topics ) && in_array( $get_array['topic_id'], $bbp_super_sticky_topics ) ) {
+					} elseif ( ! empty( $bbp_super_sticky_topics ) && in_array( $get_array['topic_id'], $bbp_super_sticky_topics, true ) ) {
 						$old_type = 'super sticky';
 					} else {
 						$old_type = 'normal';
@@ -585,7 +732,7 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 							$new_type = 'normal';
 							break;
 						case 'normal':
-							if ( isset( $get_array['super'] ) && 1 == $get_array['super'] ) {
+							if ( isset( $get_array['super'] ) && 1 === $get_array['super'] ) {
 								$new_type = 'super sticky';
 							} else {
 								$new_type = 'sticky';
@@ -594,12 +741,13 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 					}
 					$editor_link = $this->GetEditorLink( $post );
 
-					if ( ! empty( $new_type ) && $old_type != $new_type ) {
+					if ( ! empty( $new_type ) && $old_type !== $new_type ) {
 						$this->plugin->alerts->Trigger(
-							8016, array(
-								'TopicName' => $post->post_title,
-								'OldType' => $old_type,
-								'NewType' => $new_type,
+							8016,
+							array(
+								'TopicName'          => $post->post_title,
+								'OldType'            => $old_type,
+								'NewType'            => $new_type,
 								$editor_link['name'] => $editor_link['value'],
 							)
 						);
@@ -619,15 +767,15 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 		$name = 'EditorLink';
 		switch ( $post->post_type ) {
 			case 'forum':
-				$name .= 'Forum' ;
+				$name .= 'Forum';
 				break;
 			case 'topic':
-				$name .= 'Topic' ;
+				$name .= 'Topic';
 				break;
 		}
-		$value = get_edit_post_link( $post->ID );
+		$value             = get_edit_post_link( $post->ID );
 		$editor_link_array = array(
-			'name' => $name,
+			'name'  => $name,
 			'value' => $value,
 		);
 		return $editor_link_array;
