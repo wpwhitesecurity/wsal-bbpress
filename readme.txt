@@ -76,6 +76,19 @@ Please refer to our [Support & Documentation pages](https://wpactivitylog.com/su
 
 == Changelog ==
 
+= 1.0.4 (2022-04-22) =
+
+* **Improvement**
+	* Added events 8024 > 8027, plugin now reports the creation, modification and deltion of Topic Tags.
+	* Update plugin translations to ensure all strings can be translated.
+	* Ensure plugin meets WPs Coding Standards.
+	
+* **Bug fixes**
+	* Updated function names inline with the release of WP Activity Log 4.4.1 to avoid PHP errors during certain actions.
+	* Fixed function error causing WP Activity Log users to be unable to activate this extension.
+	* Ensure BBpress post types are always ignored for standard WP Activity Log events.
+	* Ensure events 8013 and 8012 are reported only when a change is detected.
+
 = 1.0.3 (2021-04-28) =
 
 Release notes: [Major update of all the activity log extensions](https://wpactivitylog.com/core-update-extensions-2-0/)
