@@ -1,17 +1,17 @@
 # Copyright (C) 2022 WP White Security
-# This file is distributed under the GPL2.
+# This file is distributed under the same license as the WP Activity Log for bbPress plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Activity Log for bbPress 1.0.3\n"
+"Project-Id-Version: WP Activity Log for bbPress 1.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wsal-bbpress\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-04-19T15:56:44+00:00\n"
+"POT-Creation-Date: 2022-04-22T10:26:57+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0-alpha\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wsal-bbpress\n"
 
 #. Plugin Name of the plugin
@@ -32,6 +32,14 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://www.wpwhitesecurity.com/"
+msgstr ""
+
+#: includes/wsal-functions.php:22
+msgid "BBPress"
+msgstr ""
+
+#: includes/wsal-functions.php:23
+msgid "BBPress Forum"
 msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:10
@@ -366,12 +374,4 @@ msgstr ""
 
 #: wp-security-audit-log/custom-alerts.php:369
 msgid "User profile page"
-msgstr ""
-
-#: wsal-bbpress.php:51
-msgid "BBPress"
-msgstr ""
-
-#: wsal-bbpress.php:52
-msgid "BBPress Forum"
 msgstr ""
