@@ -7,7 +7,7 @@
  * Domain Path: /languages
  * Author: WP White Security
  * Author URI: https://www.wpwhitesecurity.com/
- * Version: 1.0.4
+ * Version: 1.0.5
  * License: GPL2
  * Network: true
  *
@@ -16,7 +16,7 @@
  */
 
 /*
-	Copyright(c) 2020  WP White Security  (email : info@wpwhitesecurity.com)
+	Copyright(c) 2022  WP White Security  (email : info@wpwhitesecurity.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
