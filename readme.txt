@@ -76,8 +76,12 @@ Please refer to our [Support & Documentation pages](https://wpactivitylog.com/su
 
 == Changelog ==
 
-= 1.0.4 (2022-04-22) =
+= 1.0.5 (2022-11-17) =
 
+* **Improvements**
+	* Ensure compatability with current and upcoming WP Activity Log release.
+	* Event 8001 (Forum opened/closed) can now be triggered via quick-edits in the WordPress dashboard.
+	
 = 1.0.4 (2022-04-22) =
 
 * **New event IDs**
