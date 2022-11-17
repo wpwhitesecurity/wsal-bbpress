@@ -76,12 +76,23 @@ Please refer to our [Support & Documentation pages](https://wpactivitylog.com/su
 
 == Changelog ==
 
+= 1.0.5 (2022-11-17) =
+
+* **Improvements**
+	* Ensure compatability with current and upcoming WP Activity Log release.
+	* Event 8001 (Forum opened/closed) can now be triggered via quick-edits in the WordPress dashboard.
+	
 = 1.0.4 (2022-04-22) =
 
+* **New event IDs**
+	* ID 8024: Created a new topic tag.
+	* ID 8025: Deleted a tag.
+	* ID 8026: Renamed a topic tag.
+	* ID 8027: Changed the slug of a topic tag.
+
 * **Improvement**
-	* Added events 8024 > 8027, plugin now reports the creation, modification and deltion of Topic Tags.
-	* Update plugin translations to ensure all strings can be translated.
-	* Ensure plugin meets WPs Coding Standards.
+	* Updated the plugin translations to ensure all strings can be translated.
+	* Updated plugin to meet the WordPress Coding Standards.
 	
 * **Bug fixes**
 	* Updated function names inline with the release of WP Activity Log 4.4.1 to avoid PHP errors during certain actions.

@@ -755,6 +755,38 @@ class WSAL_Sensors_BBPressSensor extends WSAL_AbstractSensor {
 				}
 			}
 		}
+
+		if ( ! empty( $get_array['post_type'] ) && ! empty( $get_array['forum_id'] ) ) {
+			if ( 'forum' === $get_array['post_type'] ) {
+				$post = get_post( $get_array['forum_id'] );
+
+				// Topic type.
+				if ( isset( $get_array['action'] ) && 'bbp_toggle_forum_close' === $get_array['action'] ) {
+					if ( ! empty( $post->post_parent ) ) {
+						$post_id = $post->post_parent;
+					} else {
+						$post_id = $get_array['forum_id'];
+					}
+
+					$editor_link = $this->GetEditorLink( $post );
+
+					$bbp_status = get_post_meta( $post->ID, '_bbp_status', true );
+					$old_status = ! empty( $bbp_status ) ? $bbp_status : 'open';
+					$new_status = ( "closed" === $old_status ) ? 'open' : 'closed';
+					if ( ! empty( $new_status ) && $old_status !== $new_status ) {
+						$this->plugin->alerts->Trigger(
+							8001,
+							array(
+								'ForumName'          => $post->post_title,
+								'OldStatus'          => $old_status,
+								'NewStatus'          => $new_status,
+								$editor_link['name'] => $editor_link['value'],
+							)
+						);
+					}
+				}
+			}
+		}
 	}
 
 	/**
