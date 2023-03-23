@@ -7,7 +7,7 @@
  * Domain Path: /languages
  * Author: WP White Security
  * Author URI: https://www.wpwhitesecurity.com/
- * Version: 1.0.4
+ * Version: 1.0.6
  * License: GPL2
  * Network: true
  *
@@ -15,8 +15,10 @@
  * @subpackage Wsal Custom Events Loader
  */
 
+use WSAL\Helpers\Classes_Helper;
+
 /*
-	Copyright(c) 2020  WP White Security  (email : info@wpwhitesecurity.com)
+	Copyright(c) 2022  WP White Security  (email : info@wpwhitesecurity.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -40,3 +42,23 @@ $wsal_extension = new \WPWhiteSecurity\ActivityLog\Extensions\Common\Core( __FIL
 
 // Include extension specific functions.
 require_once plugin_dir_path( __FILE__ ) . 'includes/wsal-functions.php';
+
+add_action(
+	'wsal_custom_alerts_register',
+	/**
+	* Adds sensors classes to the Class Helper
+	*
+	* @return void
+	*
+	* @since latest
+	*/
+	function () {
+		require_once __DIR__ . '/wp-security-audit-log/class-bbpress-custom-alerts.php';
+
+		Classes_Helper::add_to_class_map(
+			array(
+				'WSAL\\Custom_Alerts\\bbPress_Custom_Alerts' => __DIR__ . '/wp-security-audit-log/class-bbpress-custom-alerts.php',
+			)
+		);
+	}
+);
